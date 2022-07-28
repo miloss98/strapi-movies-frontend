@@ -1,0 +1,18 @@
+.links-container {
+  display: flex;
+  padding: 20;
+}
+.link {
+  padding: 20px 20px;
+  color: red;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+.link:hover {
+  font-size: 1.4rem;
+}
+.active {
+  color: gray;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
