@@ -8,6 +8,8 @@ const MoviesProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [filteredData, setFiltedData] = useState([]);
 
+  const [movieData, setMovieData] = useState([]);
+
   const fetchData = async () => {
     try {
       const response = await axios.get(url);
@@ -23,7 +25,7 @@ const MoviesProvider = ({ children }) => {
 
   return (
     <MoviesContext.Provider
-      value={{ data, setData, filteredData, setFiltedData }}
+      value={{ data, filteredData, setFiltedData, movieData, setMovieData }}
     >
       {children}
     </MoviesContext.Provider>

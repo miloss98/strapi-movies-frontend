@@ -6,6 +6,7 @@ const url = "http://localhost:1337";
 
 const Movie = () => {
   const { data } = useContext(MoviesContext);
+
   return (
     <>
       {data.map((movie) => {
@@ -30,7 +31,6 @@ const Movie = () => {
             </p>
             <span> Director: {attributes?.director}</span>
             <span> Release date: {attributes?.released} </span>
-
             <span> Duration: {attributes?.duration}</span>
             <span> Rating: {attributes?.rating} </span>
           </div>
