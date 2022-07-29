@@ -1,5 +1,27 @@
 .about-wrapper {
+  height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   background-color: #818181;
+}
+.about-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+}
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  color: white;
+  background-color: black;
+  border-radius: 3px;
+}
+.about {
+  text-align: center;
+  padding: 20px;
 }
