@@ -5,7 +5,6 @@ const Movies = () => {
     <>
       <section className="search-bar-container">
         <div className="search-div">
-          {/* <img id="search-icon" src={searchIcon} alt="search icon" /> */}
           <input
             className="input-field"
             type="text"
