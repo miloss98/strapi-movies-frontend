@@ -1,5 +1,23 @@
 import "./../styles/movies.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const Movie = () => {
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:1337/api/movies/");
+      setData(response.data?.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  console.log(data);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="movie-card">
