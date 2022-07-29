@@ -3,7 +3,6 @@ import "./../styles/home.css";
 const Home = () => {
   return (
     <div className="wrapper">
-      <Header />
       <p> main ccontent</p>
     </div>
   );
