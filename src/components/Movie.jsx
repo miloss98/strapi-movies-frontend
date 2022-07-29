@@ -7,45 +7,52 @@ const Movie = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:1337/api/movies/");
+      const response = await axios.get(
+        "http://localhost:1337/api/movies/?populate=*"
+      );
       setData(response.data?.data);
     } catch (error) {
       console.log(error.message);
     }
   };
-  console.log(data);
+
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
     <>
-      <div className="movie-card">
-        <h1> movie title</h1>
-        <p>
-          {" "}
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-          commodi cupiditate nobis dolorum quisquam! Maiores doloribus quo iste,
-          ducimus suscipit voluptates eos magni obcaecati neque nobis sint nam
-          tenetur quisquam!
-        </p>
-      </div>
-      <div className="movie-card">
-        <h1> movie title</h1>
-        <p>
-          {" "}
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Reprehenderit, in.
-        </p>
-      </div>
-      <div className="movie-card">
-        <h1> movie title</h1>
-        <p>
-          {" "}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis rerum
-          earum assumenda modi consequuntur sapiente.
-        </p>
-      </div>
+      {data.map((movie) => {
+        const { attributes, id } = movie;
+        console.log(attributes?.image?.data?.attributes?.url);
+        return (
+          <div key={id} className="movie-card">
+            <h1> {attributes?.name} </h1>
+            <img
+              src={
+                `http://localhost:1337` +
+                attributes?.image?.data?.attributes?.url
+              }
+              alt={attributes?.name}
+            />
+            <p>{attributes?.description}</p>
+            <p> Actors: {attributes?.actors}</p>
+            <p>
+              {" "}
+              Genre:
+              {attributes?.categories?.data.map((category) => {
+                const { attributes, id } = category;
+                return <span key={id}>{attributes?.name}</span>;
+              })}
+            </p>
+            <span> Director: {attributes?.director}</span>
+            <span> Release date: {attributes?.released} </span>
+
+            <span> Duration: {attributes?.duration}</span>
+            <span> Rating: {attributes?.rating} </span>
+          </div>
+        );
+      })}
     </>
   );
 };

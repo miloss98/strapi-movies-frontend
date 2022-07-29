@@ -48,10 +48,10 @@
   margin-top: 2rem;
   width: 80%;
   display: grid;
+  grid-template-columns: auto auto auto;
   justify-content: center;
   align-content: center;
   gap: 20px;
-  grid-auto-flow: column;
 }
 .movie-card {
   height: 350px;
