@@ -1,9 +1,9 @@
-import Header from "../components/Header";
+import Movies from "../components/Movies";
 import "./../styles/home.css";
 const Home = () => {
   return (
     <div className="wrapper">
-      <p> main ccontent</p>
+      <Movies />
     </div>
   );
 };

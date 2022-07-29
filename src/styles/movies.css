@@ -1,0 +1,21 @@
+.movies-container {
+  margin-top: 2rem;
+  width: 80%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  gap: 20px;
+  grid-auto-flow: column;
+  border: 1px solid red;
+}
+.movie-card {
+  height: 400px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+}

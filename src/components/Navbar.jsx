@@ -4,7 +4,7 @@ import Home from "./../pages/Home";
 import "./../styles/navbar.css";
 const Navbar = () => {
   return (
-    <div classsName="links-container">
+    <div className="links-container">
       <NavLink
         className={({ isActive }) => (isActive ? "active" : "link")}
         to="/"
