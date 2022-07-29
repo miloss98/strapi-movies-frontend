@@ -2,9 +2,25 @@ import Movie from "./Movie";
 import "./../styles/movies.css";
 const Movies = () => {
   return (
-    <div className="movies-container">
-      <Movie />
-    </div>
+    <>
+      <section className="search-bar-container">
+        <div className="search-div">
+          {/* <img id="search-icon" src={searchIcon} alt="search icon" /> */}
+          <input
+            className="input-field"
+            type="text"
+            placeholder="e.g. Inception"
+            // ref={searchValue}
+          ></input>
+          <button className="search-btn" type="click">
+            Search
+          </button>
+        </div>
+      </section>
+      <div className="movies-container">
+        <Movie />
+      </div>
+    </>
   );
 };
 
