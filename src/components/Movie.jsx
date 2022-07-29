@@ -1,25 +1,11 @@
 import "./../styles/movies.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { MoviesContext } from "./../context";
+
+const url = "http://localhost:1337";
 
 const Movie = () => {
-  const [data, setData] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:1337/api/movies/?populate=*"
-      );
-      setData(response.data?.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+  const { data } = useContext(MoviesContext);
   return (
     <>
       {data.map((movie) => {
@@ -29,10 +15,7 @@ const Movie = () => {
           <div key={id} className="movie-card">
             <h1> {attributes?.name} </h1>
             <img
-              src={
-                `http://localhost:1337` +
-                attributes?.image?.data?.attributes?.url
-              }
+              src={url + attributes?.image?.data?.attributes?.url}
               alt={attributes?.name}
             />
             <p>{attributes?.description}</p>
