@@ -13,7 +13,7 @@ const Movie = () => {
     <>
       {data.map((movie) => {
         const { attributes, id } = movie;
-        console.log(attributes?.image?.data?.attributes?.url);
+
         return (
           <div key={id} className="movie-card">
             <section className="movie-title-container">
