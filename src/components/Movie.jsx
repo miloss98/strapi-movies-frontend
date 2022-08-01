@@ -14,25 +14,41 @@ const Movie = () => {
         console.log(attributes?.image?.data?.attributes?.url);
         return (
           <div key={id} className="movie-card">
-            <h1> {attributes?.name} </h1>
+            <section className="movie-title-container">
+              <h1 className="movie-title"> {attributes?.name} </h1>
+            </section>
             <img
+              className="movie-img"
               src={url + attributes?.image?.data?.attributes?.url}
               alt={attributes?.name}
             />
-            <p>{attributes?.description}</p>
-            <p> Actors: {attributes?.actors}</p>
-            <p>
-              {" "}
-              Genre:
-              {attributes?.categories?.data.map((category) => {
-                const { attributes, id } = category;
-                return <span key={id}>{attributes?.name}</span>;
-              })}
-            </p>
-            <span> Director: {attributes?.director}</span>
-            <span> Release date: {attributes?.released} </span>
-            <span> Duration: {attributes?.duration}</span>
-            <span> Rating: {attributes?.rating} </span>
+            <section className="genres-container">
+              <p>
+                <span> Genre: </span>
+                {attributes?.categories?.data.map((category) => {
+                  const { attributes, id } = category;
+                  return (
+                    <span className="genre" key={id}>
+                      {attributes?.name + ""}{" "}
+                    </span>
+                  );
+                })}
+              </p>
+            </section>
+            <section className="other-info-container">
+              <p>
+                Release date: <span> {attributes?.released} </span>
+              </p>
+              <p>
+                Duration: <span> {attributes?.duration}</span>
+              </p>
+              <p>
+                Rating: <span> {attributes?.rating} </span>
+              </p>
+            </section>
+            <section className="read-more-container">
+              <button className="read-more">Read more</button>
+            </section>
           </div>
         );
       })}

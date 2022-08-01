@@ -52,10 +52,11 @@
   justify-content: center;
   align-content: center;
   gap: 20px;
+  border-radius: 3px;
 }
 .movie-card {
-  height: 350px;
-  width: 300px;
+  height: 550px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -63,5 +64,69 @@
   background-color: black;
   color: white;
   border-radius: 3px;
-  padding: 20px;
+  padding: 0px 20px 0px 20px;
+}
+.movie-title-container {
+  height: 8%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0rem 0.5rem 0rem;
+}
+.movie-title {
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+.movie-img {
+  height: 65%;
+  width: 90%;
+}
+.genres-container {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: 5%;
+}
+.genre {
+  color: gold;
+}
+.other-info-container {
+  height: 12%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.other-info-container p {
+  text-align: center;
+}
+.other-info-container span {
+  color: gold;
+  white-space: nowrap;
+}
+.read-more-container {
+  width: 90%;
+  height: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.read-more {
+  border: none;
+  border-radius: 3px;
+  background-color: red;
+  color: white;
+  height: 100%;
+  width: 40%;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.read-more:hover {
+  cursor: pointer;
+  filter: brightness(80%);
 }
