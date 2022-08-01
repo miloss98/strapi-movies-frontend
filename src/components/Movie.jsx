@@ -31,7 +31,7 @@ const Movie = () => {
                   const { attributes, id } = category;
                   return (
                     <span className="genre" key={id}>
-                      {attributes?.name + ""}{" "}
+                      {attributes?.name}{" "}
                     </span>
                   );
                 })}
@@ -39,7 +39,7 @@ const Movie = () => {
             </section>
             <section className="other-info-container">
               <p>
-                Release date: <span> {attributes?.released} </span>
+                Released: <span> {attributes?.released} </span>
               </p>
               <p>
                 Duration: <span> {attributes?.duration}</span>

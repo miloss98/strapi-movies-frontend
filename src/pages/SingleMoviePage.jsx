@@ -1,13 +1,15 @@
 import { useContext, useEffect } from "react";
 import { MoviesContext } from "../context";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./../styles/singlemovie.css";
+import { HiArrowNarrowLeft } from "react-icons/hi";
 
 const SingleMoviePage = () => {
   const url = "http://localhost:1337";
   const { movieData, setMovieData } = useContext(MoviesContext);
   const { movieID } = useParams();
+  const navigate = useNavigate();
 
   const getMovie = async () => {
     try {
@@ -30,7 +32,15 @@ const SingleMoviePage = () => {
       {" "}
       <div className="single-movie-container">
         <section className="movie-header">
-          <h1 className="title"> {movieData.data?.data?.attributes?.name} </h1>
+          <div className="left-side">
+            {" "}
+            <HiArrowNarrowLeft
+              className="go-back"
+              onClick={() => navigate(-1)}
+            />{" "}
+            <h1 id="title"> {movieData.data?.data?.attributes?.name} </h1>
+          </div>
+
           <p>
             IMDb rating:{" "}
             <span className="rating">
@@ -53,20 +63,48 @@ const SingleMoviePage = () => {
               {movieData.data?.data?.attributes?.description}
             </p>
             <p className="actors">
-              Actors: {movieData.data?.data?.attributes?.actors}
+              Actors:{" "}
+              <span className="data">
+                {" "}
+                {movieData.data?.data?.attributes?.actors}
+              </span>
             </p>
             <p>
               Genre:
               {movieData.data?.data?.attributes?.categories?.data.map(
                 (category) => {
                   const { attributes, id } = category;
-                  return <span key={id}> {attributes?.name}</span>;
+                  return (
+                    <span className="data" key={id}>
+                      {" "}
+                      {attributes?.name}
+                    </span>
+                  );
                 }
               )}
             </p>
-            <p> Director: {movieData.data?.data?.attributes?.director}</p>
-            <p> Release date: {movieData.data?.data?.attributes?.released}</p>
-            <p> Duration: {movieData.data?.data?.attributes?.duration}</p>
+            <p>
+              {" "}
+              Director:{" "}
+              <span className="data">
+                {movieData.data?.data?.attributes?.director}{" "}
+              </span>
+            </p>
+            <p>
+              {" "}
+              Released:{" "}
+              <span className="data">
+                {" "}
+                {movieData.data?.data?.attributes?.released}{" "}
+              </span>
+            </p>
+            <p>
+              {" "}
+              Duration:{" "}
+              <span className="data">
+                {movieData.data?.data?.attributes?.duration}
+              </span>{" "}
+            </p>
           </div>
         </section>
       </div>

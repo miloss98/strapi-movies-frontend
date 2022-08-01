@@ -21,11 +21,28 @@
   align-items: center;
   background-color: #f40009;
 }
-.title {
-  margin-left: 3rem;
+.left-side {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.go-back {
+  margin-left: 2rem;
+  color: white;
+  height: 30px;
+  width: 30px;
+}
+.go-back:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+}
+#title {
+  margin-left: 1rem;
+  color: gold;
 }
 .movie-header p {
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 .rating {
   color: gold;
@@ -44,10 +61,11 @@
   height: 100%;
   margin-left: 2rem;
 }
-.description {
-}
 .cover-image {
   height: 100%;
   width: 30%;
   border-radius: 3px;
+}
+.data {
+  color: gold;
 }
