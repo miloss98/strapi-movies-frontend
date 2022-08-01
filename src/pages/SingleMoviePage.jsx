@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { MoviesContext } from "../context";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./../styles/singlemovie.css";
 
 const SingleMoviePage = () => {
   const url = "http://localhost:1337";
@@ -25,28 +26,50 @@ const SingleMoviePage = () => {
   }, [movieID]);
 
   return (
-    <div className="single-movie-container">
-      <h1> {movieData.data?.data?.attributes?.name} </h1>
-      <img
-        src={
-          url + movieData.data?.data?.attributes?.image?.data?.attributes?.url
-        }
-        alt="movie-img"
-      />
-      <p> Actors: {movieData.data?.data?.attributes?.actors}</p>
-      <p> Description: {movieData.data?.data?.attributes?.description}</p>
-      <p>
-        {" "}
-        Genre:
-        {movieData.data?.data?.attributes?.categories?.data.map((category) => {
-          const { attributes, id } = category;
-          return <span key={id}>{attributes?.name}</span>;
-        })}
-      </p>
-      <span> Director: {movieData.data?.data?.attributes?.director}</span>
-      <span> Release date: {movieData.data?.data?.attributes?.released} </span>
-      <span> Duration: {movieData.data?.data?.attributes?.duration}</span>
-      <span> Rating: {movieData.data?.data?.attributes?.rating} </span>
+    <div className="single-movie-wrapper">
+      {" "}
+      <div className="single-movie-container">
+        <section className="movie-header">
+          <h1 className="title"> {movieData.data?.data?.attributes?.name} </h1>
+          <p>
+            IMDb rating:{" "}
+            <span className="rating">
+              {movieData.data?.data?.attributes?.rating}{" "}
+            </span>
+            / 10
+          </p>
+        </section>
+        <section className="main-info">
+          <img
+            className="cover-image"
+            src={
+              url +
+              movieData.data?.data?.attributes?.image?.data?.attributes?.url
+            }
+            alt="movie-img"
+          />
+          <div className="right-side">
+            <p className="description">
+              {movieData.data?.data?.attributes?.description}
+            </p>
+            <p className="actors">
+              Actors: {movieData.data?.data?.attributes?.actors}
+            </p>
+            <p>
+              Genre:
+              {movieData.data?.data?.attributes?.categories?.data.map(
+                (category) => {
+                  const { attributes, id } = category;
+                  return <span key={id}> {attributes?.name}</span>;
+                }
+              )}
+            </p>
+            <p> Director: {movieData.data?.data?.attributes?.director}</p>
+            <p> Release date: {movieData.data?.data?.attributes?.released}</p>
+            <p> Duration: {movieData.data?.data?.attributes?.duration}</p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
