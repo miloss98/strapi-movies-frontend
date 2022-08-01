@@ -1,11 +1,13 @@
 import "./../styles/movies.css";
 import { useContext } from "react";
 import { MoviesContext } from "./../context";
+import { useNavigate } from "react-router-dom";
 
 const url = "http://localhost:1337";
 
 const Movie = () => {
   const { data } = useContext(MoviesContext);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -47,7 +49,12 @@ const Movie = () => {
               </p>
             </section>
             <section className="read-more-container">
-              <button className="read-more">Read more</button>
+              <button
+                onClick={() => navigate(`/movies/${id}`)}
+                className="read-more"
+              >
+                Read more
+              </button>
             </section>
           </div>
         );
