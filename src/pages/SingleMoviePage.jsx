@@ -21,8 +21,9 @@ const SingleMoviePage = () => {
 
   useEffect(() => {
     getMovie();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieID]);
-  console.log(movieData.data?.data?.attributes);
+
   return (
     <div className="single-movie-container">
       <h1> {movieData.data?.data?.attributes?.name} </h1>
@@ -30,7 +31,7 @@ const SingleMoviePage = () => {
         src={
           url + movieData.data?.data?.attributes?.image?.data?.attributes?.url
         }
-        alt={movieData.data?.data?.attributes?.image?.data?.attributes?.name}
+        alt="movie-img"
       />
       <p> Actors: {movieData.data?.data?.attributes?.actors}</p>
       <p> Description: {movieData.data?.data?.attributes?.description}</p>
