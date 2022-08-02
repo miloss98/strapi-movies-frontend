@@ -55,6 +55,7 @@ const Movie = () => {
               >
                 Read more
               </button>
+              <button className="add-to-watchlist"> Add to watchlist</button>
             </section>
           </div>
         );

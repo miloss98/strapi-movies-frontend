@@ -8,6 +8,7 @@ const MoviesProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [movieData, setMovieData] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -24,7 +25,15 @@ const MoviesProvider = ({ children }) => {
 
   return (
     <MoviesContext.Provider
-      value={{ data, filteredData, setFilteredData, movieData, setMovieData }}
+      value={{
+        data,
+        filteredData,
+        setFilteredData,
+        movieData,
+        setMovieData,
+        watchlist,
+        setWatchlist,
+      }}
     >
       {children}
     </MoviesContext.Provider>
