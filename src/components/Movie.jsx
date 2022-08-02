@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const url = "http://localhost:1337";
 
 const Movie = () => {
-  const { data, handleWatchlist } = useContext(MoviesContext);
+  const { data, addToWatchlist } = useContext(MoviesContext);
   const navigate = useNavigate();
 
   return (
@@ -56,7 +56,7 @@ const Movie = () => {
                 Read more
               </button>
               <button
-                onClick={(e) => handleWatchlist(id, e)}
+                onClick={(e) => addToWatchlist(id, e)}
                 className="add-to-watchlist"
               >
                 {" "}

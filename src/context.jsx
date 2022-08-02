@@ -11,10 +11,18 @@ const MoviesProvider = ({ children }) => {
   const [watchlist, setWatchlist] = useState([]);
   const [modal, setModal] = useState(false);
 
-  const handleWatchlist = (id, e) => {
+  const addToWatchlist = (id, e) => {
     e.preventDefault();
     const newWatchlistItem = data.filter((movie) => movie.id === id);
     setWatchlist([...watchlist, newWatchlistItem]);
+  };
+
+  const removeFromWatchlist = (id, e) => {
+    e.preventDefault();
+    const newWatchlist = watchlist.filter((movie) => movie[0].id !== id);
+
+    setWatchlist(newWatchlist);
+    console.log(watchlist);
   };
 
   const fetchData = async () => {
@@ -42,7 +50,8 @@ const MoviesProvider = ({ children }) => {
         setWatchlist,
         modal,
         setModal,
-        handleWatchlist,
+        addToWatchlist,
+        removeFromWatchlist,
       }}
     >
       {children}
