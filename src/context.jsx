@@ -9,6 +9,13 @@ const MoviesProvider = ({ children }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [movieData, setMovieData] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
+  const [modal, setModal] = useState(false);
+
+  const handleWatchlist = (id, e) => {
+    e.preventDefault();
+    const newWatchlistItem = data.filter((movie) => movie.id === id);
+    setWatchlist([...watchlist, newWatchlistItem]);
+  };
 
   const fetchData = async () => {
     try {
@@ -33,6 +40,9 @@ const MoviesProvider = ({ children }) => {
         setMovieData,
         watchlist,
         setWatchlist,
+        modal,
+        setModal,
+        handleWatchlist,
       }}
     >
       {children}
