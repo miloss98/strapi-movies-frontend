@@ -69,3 +69,15 @@
 .data {
   color: gold;
 }
+#add-to-watchlist {
+  border: none;
+  background-color: blue;
+  color: white;
+  margin-top: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+}
+#add-to-watchlist:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+}

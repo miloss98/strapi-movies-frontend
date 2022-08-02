@@ -7,7 +7,7 @@ import { HiArrowNarrowLeft } from "react-icons/hi";
 
 const SingleMoviePage = () => {
   const url = "http://localhost:1337";
-  const { movieData, setMovieData } = useContext(MoviesContext);
+  const { movieData, setMovieData, addToWatchlist } = useContext(MoviesContext);
   const { movieID } = useParams();
   const navigate = useNavigate();
 
@@ -105,6 +105,13 @@ const SingleMoviePage = () => {
                 {movieData.data?.data?.attributes?.duration}
               </span>{" "}
             </p>
+            <button
+              onClick={(e) => addToWatchlist(movieData?.data?.data.id, e)}
+              id="add-to-watchlist"
+            >
+              {" "}
+              Add to watchlist
+            </button>
           </div>
         </section>
       </div>
