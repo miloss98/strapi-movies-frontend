@@ -1,12 +1,23 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { MoviesContext } from "../context";
-
+import { NavLink } from "react-router-dom";
+import Home from "./../pages/Home";
+import "./../styles/watchlist.css";
 const Watchlist = () => {
-  const { watchlist, setWatchlist, removeFromWatchlist } =
-    useContext(MoviesContext);
+  const { watchlist, removeFromWatchlist } = useContext(MoviesContext);
 
   if (watchlist.length === 0) {
-    return <h1> There are no movies in your watchlist</h1>;
+    return (
+      <div className="watchlist-wrapper">
+        <div className="watchlist-container">
+          <h1> Your watchlist is empty. </h1>
+          <NavLink className="nav-find-movies" to="/" element={<Home />}>
+            {" "}
+            Add movies{" "}
+          </NavLink>
+        </div>
+      </div>
+    );
   }
   return (
     <div className="watchlist-container">
@@ -17,7 +28,7 @@ const Watchlist = () => {
             <div key={id}>
               {attributes.name}
               <button onClick={(e) => removeFromWatchlist(id, e)}>
-                Remove from watchlist{" "}
+                Remove{" "}
               </button>
             </div>
           );
