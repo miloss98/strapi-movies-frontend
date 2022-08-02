@@ -29,7 +29,6 @@ const SingleMoviePage = () => {
 
   return (
     <div className="single-movie-wrapper">
-      {" "}
       <div className="single-movie-container">
         <section className="movie-header">
           <div className="left-side">
@@ -44,7 +43,7 @@ const SingleMoviePage = () => {
           <p>
             IMDb rating:{" "}
             <span className="rating">
-              {movieData.data?.data?.attributes?.rating}{" "}
+              {movieData.data?.data?.attributes?.rating}
             </span>
             / 10
           </p>
@@ -65,7 +64,6 @@ const SingleMoviePage = () => {
             <p className="actors">
               Actors:{" "}
               <span className="data">
-                {" "}
                 {movieData.data?.data?.attributes?.actors}
               </span>
             </p>
@@ -84,32 +82,28 @@ const SingleMoviePage = () => {
               )}
             </p>
             <p>
-              {" "}
               Director:{" "}
               <span className="data">
-                {movieData.data?.data?.attributes?.director}{" "}
+                {movieData.data?.data?.attributes?.director}
               </span>
             </p>
             <p>
-              {" "}
-              Released:{" "}
+              Released:
               <span className="data">
                 {" "}
-                {movieData.data?.data?.attributes?.released}{" "}
+                {movieData.data?.data?.attributes?.released}
               </span>
             </p>
             <p>
-              {" "}
               Duration:{" "}
               <span className="data">
                 {movieData.data?.data?.attributes?.duration}
-              </span>{" "}
+              </span>
             </p>
             <button
               onClick={(e) => addToWatchlist(movieData?.data?.data.id, e)}
               id="add-to-watchlist"
             >
-              {" "}
               Add to watchlist
             </button>
           </div>
