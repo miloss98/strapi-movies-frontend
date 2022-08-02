@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 const MoviesContext = React.createContext();
@@ -6,9 +6,16 @@ const url = "http://localhost:1337/api/movies/?populate=*";
 
 const MoviesProvider = ({ children }) => {
   const [data, setData] = useState([]);
-  //const [filteredData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [search, setSearch] = useState("");
   const [movieData, setMovieData] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
+
+  //search stuff
+  const searchValue = useRef("");
+  const searchMovies = () => {
+    setSearch(searchValue.current.value);
+  };
 
   //alert
   const added = "Added to watchlist!";
@@ -28,6 +35,15 @@ const MoviesProvider = ({ children }) => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  //search/query refetch
+  useEffect(() => {
+    setFilteredData(
+      data.filter((movie) =>
+        movie?.attributes?.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search, data]);
 
   const addToWatchlist = (id, e) => {
     e.preventDefault();
@@ -59,8 +75,10 @@ const MoviesProvider = ({ children }) => {
     <MoviesContext.Provider
       value={{
         data,
-        //filteredData,
-        //setFilteredData,
+        filteredData,
+        setFilteredData,
+        searchValue,
+        searchMovies,
         movieData,
         setMovieData,
         watchlist,

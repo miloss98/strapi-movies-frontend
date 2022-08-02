@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 const url = "http://localhost:1337";
 
 const Movie = () => {
-  const { data, addToWatchlist, alertBox, message } = useContext(MoviesContext);
+  const { filteredData, addToWatchlist, alertBox, message } =
+    useContext(MoviesContext);
   const navigate = useNavigate();
 
   return (
@@ -17,7 +18,7 @@ const Movie = () => {
         </div>
       )}
 
-      {data.map((movie) => {
+      {filteredData.map((movie) => {
         const { attributes, id } = movie;
 
         return (

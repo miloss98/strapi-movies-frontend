@@ -164,3 +164,30 @@
   font-weight: 600;
   letter-spacing: 1px;
 }
+/* no movies */
+.no-movies-container {
+  height: calc(100vh - 80px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#no-movies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+#no-movies h4 {
+  color: darkred;
+  font-size: 2rem;
+  margin: 0;
+}
+.try-again {
+  color: black;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
