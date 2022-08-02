@@ -9,7 +9,7 @@ const Watchlist = () => {
   if (watchlist.length === 0) {
     return (
       <div className="watchlist-wrapper">
-        <div className="watchlist-container">
+        <div className="empty-watchlist-container">
           <h1> Your watchlist is empty. </h1>
           <NavLink className="nav-find-movies" to="/" element={<Home />}>
             {" "}
@@ -20,20 +20,41 @@ const Watchlist = () => {
     );
   }
   return (
-    <div className="watchlist-container">
-      {watchlist.map((movie) => {
-        return movie.map((item) => {
-          const { attributes, id } = item;
-          return (
-            <div key={id}>
-              {attributes.name}
-              <button onClick={(e) => removeFromWatchlist(id, e)}>
-                Remove{" "}
-              </button>
-            </div>
-          );
-        });
-      })}
+    <div className="watchlist-wrapper">
+      <div className="watchlist-container">
+        <h2> Your watchlist </h2>
+        {watchlist.map((movie) => {
+          return movie.map((item) => {
+            const { attributes, id } = item;
+            return (
+              <div className="single-wl-movie-container" key={id}>
+                <section className="info">
+                  <h3 id="wl-movie-title"> {attributes.name}</h3>
+                </section>
+                <section className="info">
+                  <p>
+                    Rating: <span className="data"> {attributes.rating} </span>{" "}
+                    / 10
+                  </p>
+                </section>
+                <section className="info">
+                  <p>
+                    Year: <span className="data">{attributes.released} </span>
+                  </p>
+                </section>
+                <section className="rmv-container">
+                  <button
+                    className="remove-button"
+                    onClick={(e) => removeFromWatchlist(id, e)}
+                  >
+                    Remove{" "}
+                  </button>
+                </section>
+              </div>
+            );
+          });
+        })}
+      </div>
     </div>
   );
 };

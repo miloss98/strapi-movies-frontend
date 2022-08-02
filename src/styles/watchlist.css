@@ -1,12 +1,12 @@
 .watchlist-wrapper {
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: gray;
 }
-.watchlist-container {
+.empty-watchlist-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@
   width: 80%;
   background-color: black;
 }
-.watchlist-container h1 {
+.empty-watchlist-container h1 {
   color: white;
   letter-spacing: 1px;
   font-weight: 500;
@@ -31,5 +31,53 @@
   margin-bottom: 1rem;
 }
 .nav-find-movies:hover {
+  filter: brightness(80%);
+}
+/* when wathlist is not empty */
+.watchlist-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.watchlist-container h2 {
+  font-size: 1.7rem;
+}
+.single-wl-movie-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  width: 80%;
+  background-color: black;
+  border-radius: 5px;
+}
+#wl-movie-title {
+  font-size: 1 rem;
+  color: orangered;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 60px;
+  width: 30%;
+  margin-left: 1rem;
+  color: white;
+}
+.rmv-container {
+  width: 10%;
+}
+.remove-button {
+  border: none;
+  background-color: orangered;
+  padding: 8px;
+  font-weight: 600;
+  color: white;
+}
+.remove-button:hover {
+  cursor: pointer;
   filter: brightness(80%);
 }
