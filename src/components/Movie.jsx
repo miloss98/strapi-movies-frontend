@@ -6,11 +6,17 @@ import { useNavigate } from "react-router-dom";
 const url = "http://localhost:1337";
 
 const Movie = () => {
-  const { data, addToWatchlist } = useContext(MoviesContext);
+  const { data, addToWatchlist, alertBox, message } = useContext(MoviesContext);
   const navigate = useNavigate();
 
   return (
     <>
+      {alertBox && (
+        <div className="alert-box-add">
+          <p className="alert-message-add"> {message}</p>
+        </div>
+      )}
+
       {data.map((movie) => {
         const { attributes, id } = movie;
 

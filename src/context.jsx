@@ -6,24 +6,15 @@ const url = "http://localhost:1337/api/movies/?populate=*";
 
 const MoviesProvider = ({ children }) => {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  //const [filteredData, setFilteredData] = useState([]);
   const [movieData, setMovieData] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
-  const [modal, setModal] = useState(false);
 
-  const addToWatchlist = (id, e) => {
-    e.preventDefault();
-    const newWatchlistItem = data.filter((movie) => movie.id === id);
-    setWatchlist([...watchlist, newWatchlistItem]);
-  };
-
-  const removeFromWatchlist = (id, e) => {
-    e.preventDefault();
-    const newWatchlist = watchlist.filter((movie) => movie[0].id !== id);
-
-    setWatchlist(newWatchlist);
-    console.log(watchlist);
-  };
+  //alert
+  const added = "Added to watchlist!";
+  const removed = "Removed from watchlist!";
+  const [message, setMessage] = useState("");
+  const [alertBox, setAlertBox] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -38,20 +29,46 @@ const MoviesProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  const addToWatchlist = (id, e) => {
+    e.preventDefault();
+    const newWatchlistItem = data.filter((movie) => movie.id === id);
+    setWatchlist([...watchlist, newWatchlistItem]);
+    setMessage(added);
+    setAlertBox(true);
+
+    setTimeout(() => {
+      setAlertBox(false);
+      setMessage("");
+    }, 1500);
+  };
+
+  const removeFromWatchlist = (id, e) => {
+    e.preventDefault();
+    const newWatchlist = watchlist.filter((movie) => movie[0].id !== id);
+    setWatchlist(newWatchlist);
+    setMessage(removed);
+    setAlertBox(true);
+
+    setTimeout(() => {
+      setAlertBox(false);
+      setMessage("");
+    }, 1500);
+  };
+
   return (
     <MoviesContext.Provider
       value={{
         data,
-        filteredData,
-        setFilteredData,
+        //filteredData,
+        //setFilteredData,
         movieData,
         setMovieData,
         watchlist,
         setWatchlist,
-        modal,
-        setModal,
         addToWatchlist,
         removeFromWatchlist,
+        alertBox,
+        message,
       }}
     >
       {children}

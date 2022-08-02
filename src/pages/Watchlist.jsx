@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 import Home from "./../pages/Home";
 import "./../styles/watchlist.css";
 const Watchlist = () => {
-  const { watchlist, removeFromWatchlist } = useContext(MoviesContext);
+  const { watchlist, removeFromWatchlist, alertBox, message } =
+    useContext(MoviesContext);
 
   if (watchlist.length === 0) {
     return (
@@ -21,6 +22,11 @@ const Watchlist = () => {
   }
   return (
     <div className="watchlist-wrapper">
+      {alertBox && (
+        <div className="alert-box-rm">
+          <p className="alert-message-rm">{message}</p>
+        </div>
+      )}
       <div className="watchlist-container">
         <h2> Your watchlist </h2>
         {watchlist.map((movie) => {
