@@ -6,8 +6,7 @@ const url = "http://localhost:1337/api/movies/?populate=*";
 
 const MoviesProvider = ({ children }) => {
   const [data, setData] = useState([]);
-  const [filteredData, setFiltedData] = useState([]);
-
+  const [filteredData, setFilteredData] = useState([]);
   const [movieData, setMovieData] = useState([]);
 
   const fetchData = async () => {
@@ -25,7 +24,7 @@ const MoviesProvider = ({ children }) => {
 
   return (
     <MoviesContext.Provider
-      value={{ data, filteredData, setFiltedData, movieData, setMovieData }}
+      value={{ data, filteredData, setFilteredData, movieData, setMovieData }}
     >
       {children}
     </MoviesContext.Provider>
