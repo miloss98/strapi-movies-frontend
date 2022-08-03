@@ -1,15 +1,47 @@
 import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
+// import axios from "axios";
+import { gql, useQuery } from "@apollo/client";
 
 const MoviesContext = React.createContext();
-const url = "http://localhost:1337/api/movies/?populate=*";
+
+const MOVIES = gql`
+  query GetMovies {
+    movies {
+      data {
+        id
+        attributes {
+          name
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          categories {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
+          released
+          duration
+          rating
+        }
+      }
+    }
+  }
+`;
 
 const MoviesProvider = ({ children }) => {
-  const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [search, setSearch] = useState("");
   const [movieData, setMovieData] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
+
+  const { loading, error, data } = useQuery(MOVIES);
 
   //search stuff
   const searchValue = useRef("");
@@ -23,31 +55,22 @@ const MoviesProvider = ({ children }) => {
   const [message, setMessage] = useState("");
   const [alertBox, setAlertBox] = useState(false);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(url);
-      setData(response.data?.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   //search/query refetch
   useEffect(() => {
+    if (loading) return;
     setFilteredData(
-      data.filter((movie) =>
+      data.movies.data.filter((movie) =>
         movie?.attributes?.name.toLowerCase().includes(search.toLowerCase())
       )
     );
   }, [search, data]);
 
+  //buttons
   const addToWatchlist = (id, e) => {
     e.preventDefault();
-    const newWatchlistItem = data.filter((movie) => movie.id === id);
+    const newWatchlistItem = data.movies.data.filter(
+      (movie) => movie.id === id
+    );
     setWatchlist([...watchlist, newWatchlistItem]);
     setMessage(added);
     setAlertBox(true);
@@ -57,7 +80,6 @@ const MoviesProvider = ({ children }) => {
       setMessage("");
     }, 1500);
   };
-
   const removeFromWatchlist = (id, e) => {
     e.preventDefault();
     const newWatchlist = watchlist.filter((movie) => movie[0].id !== id);
