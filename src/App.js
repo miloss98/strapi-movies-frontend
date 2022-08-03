@@ -1,8 +1,4 @@
-import Home from "./pages/Home";
-import Watchlist from "./pages/Watchlist";
-import About from "./pages/About";
-import SingleMoviePage from "./pages/SingleMoviePage";
-import Error from "./pages/Error";
+import { Home, Watchlist, SingleMoviePage, About, Error } from "./pages/index";
 import SharedLayout from "./components/SharedLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

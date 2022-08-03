@@ -2,12 +2,13 @@ import { useContext, useEffect } from "react";
 import { MoviesContext } from "../context";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "./../styles/singlemovie.css";
+import "./../styles/pages/singlemovie.css";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 
 const SingleMoviePage = () => {
   const url = "http://localhost:1337";
-  const { movieData, setMovieData, addToWatchlist } = useContext(MoviesContext);
+  const { movieData, setMovieData, addToWatchlist, alertBox, message } =
+    useContext(MoviesContext);
   const { movieID } = useParams();
   const navigate = useNavigate();
 
@@ -30,6 +31,11 @@ const SingleMoviePage = () => {
   return (
     <div className="single-movie-wrapper">
       <div className="single-movie-container">
+        {alertBox && (
+          <div className="alert-box-add">
+            <p className="alert-message-add"> {message}</p>
+          </div>
+        )}
         <section className="movie-header">
           <div className="left-side">
             {" "}

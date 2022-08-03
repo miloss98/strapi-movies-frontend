@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { MoviesContext } from "../context";
 import { NavLink } from "react-router-dom";
 import Home from "./../pages/Home";
-import "./../styles/watchlist.css";
+import "./../styles/pages/watchlist.css";
 const Watchlist = () => {
   const { watchlist, removeFromWatchlist, alertBox, message } =
     useContext(MoviesContext);

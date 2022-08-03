@@ -1,4 +1,4 @@
-import "./../styles/movies.css";
+import "./../styles/components/movie.css";
 import { useContext } from "react";
 import { MoviesContext } from "./../context";
 import { useNavigate } from "react-router-dom";

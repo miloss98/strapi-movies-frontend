@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
-import About from "./../pages/About";
-import Watchlist from "../pages/Watchlist";
-import Home from "./../pages/Home";
-import "./../styles/navbar.css";
+import { Home, Watchlist, About } from "./../pages/index";
+import "./../styles/components/navbar.css";
 const Navbar = () => {
   return (
     <div className="links-container">

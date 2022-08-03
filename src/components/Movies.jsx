@@ -1,10 +1,11 @@
 import Movie from "./Movie";
-import "./../styles/movies.css";
+import "./../styles/components/movies.css";
 import { useContext } from "react";
 import { MoviesContext } from "../context";
 
 const Movies = () => {
   const { searchValue, filteredData, searchMovies } = useContext(MoviesContext);
+  // eslint-disable-next-line
   if (filteredData == "" && filteredData.length < 1) {
     return (
       <div className="no-movies-container">

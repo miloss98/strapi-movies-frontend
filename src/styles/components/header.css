@@ -12,7 +12,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url("./../images/logo.png");
+  background-image: url("./../../images/logo.png");
 }
 .title-container {
   height: 80%;
