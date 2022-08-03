@@ -1,41 +1,10 @@
 import { useContext } from "react";
-import { MoviesContext } from "../context";
+import { MoviesContext } from "../modules/context";
 import { useNavigate, useParams } from "react-router-dom";
 import "./../styles/pages/singlemovie.css";
 import { HiArrowNarrowLeft } from "react-icons/hi";
-import { gql, useQuery } from "@apollo/client";
-
-const SINGLEMOVIE = gql`
-  query GetSingleMovie($id: ID!) {
-    movie(id: $id) {
-      data {
-        attributes {
-          name
-          rating
-          image {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          description
-          actors
-          categories {
-            data {
-              attributes {
-                name
-              }
-            }
-          }
-          director
-          released
-          duration
-        }
-      }
-    }
-  }
-`;
+import { useQuery } from "@apollo/client";
+import { SINGLEMOVIE } from "./../modules/queries";
 
 const SingleMoviePage = () => {
   const { addToWatchlist, alertBox, message } = useContext(MoviesContext);

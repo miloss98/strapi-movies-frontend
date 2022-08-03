@@ -1,7 +1,7 @@
 import Movie from "./Movie";
 import "./../styles/components/movies.css";
 import { useContext } from "react";
-import { MoviesContext } from "../context";
+import { MoviesContext } from "../modules/context";
 
 const Movies = () => {
   const { searchValue, filteredData, searchMovies } = useContext(MoviesContext);

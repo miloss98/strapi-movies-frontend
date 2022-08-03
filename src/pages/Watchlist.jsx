@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MoviesContext } from "../context";
+import { MoviesContext } from "../modules/context";
 import { NavLink } from "react-router-dom";
 import Home from "./../pages/Home";
 import "./../styles/pages/watchlist.css";

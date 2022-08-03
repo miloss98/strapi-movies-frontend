@@ -1,6 +1,6 @@
 import "./../styles/components/movie.css";
 import { useContext } from "react";
-import { MoviesContext } from "./../context";
+import { MoviesContext } from "./../modules/context";
 import { useNavigate } from "react-router-dom";
 
 const url = "http://localhost:1337";

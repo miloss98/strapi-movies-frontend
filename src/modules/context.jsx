@@ -1,39 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-// import axios from "axios";
-import { gql, useQuery } from "@apollo/client";
+import { MOVIES } from "./queries";
+import { useQuery } from "@apollo/client";
 
 const MoviesContext = React.createContext();
-
-const MOVIES = gql`
-  query GetMovies {
-    movies {
-      data {
-        id
-        attributes {
-          name
-          image {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          categories {
-            data {
-              id
-              attributes {
-                name
-              }
-            }
-          }
-          released
-          duration
-          rating
-        }
-      }
-    }
-  }
-`;
 
 const MoviesProvider = ({ children }) => {
   const [filteredData, setFilteredData] = useState([]);
