@@ -1,32 +1,54 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { MoviesContext } from "../context";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 import "./../styles/pages/singlemovie.css";
 import { HiArrowNarrowLeft } from "react-icons/hi";
+import { gql, useQuery } from "@apollo/client";
+
+const SINGLEMOVIE = gql`
+  query GetSingleMovie($id: ID!) {
+    movie(id: $id) {
+      data {
+        attributes {
+          name
+          rating
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          description
+          actors
+          categories {
+            data {
+              attributes {
+                name
+              }
+            }
+          }
+          director
+          released
+          duration
+        }
+      }
+    }
+  }
+`;
 
 const SingleMoviePage = () => {
-  const url = "http://localhost:1337";
-  const { movieData, setMovieData, addToWatchlist, alertBox, message } =
-    useContext(MoviesContext);
+  const { addToWatchlist, alertBox, message } = useContext(MoviesContext);
   const { movieID } = useParams();
   const navigate = useNavigate();
 
-  const getMovie = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:1337/api/movies/${movieID}/?populate=*`
-      );
-      setMovieData(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const url = "http://localhost:1337";
 
-  useEffect(() => {
-    getMovie();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [movieID]);
+  const { loading, error, data } = useQuery(SINGLEMOVIE, {
+    variables: { id: movieID },
+  });
+  if (loading) return <p> Loading,..</p>;
+  if (error) return <p> Error! </p>;
 
   return (
     <div className="single-movie-wrapper">
@@ -43,71 +65,62 @@ const SingleMoviePage = () => {
               className="go-back"
               onClick={() => navigate(-1)}
             />{" "}
-            <h1 id="title"> {movieData.data?.data?.attributes?.name} </h1>
+            <h1 id="title"> {data.movie.data.attributes.name} </h1>
           </div>
 
           <p>
             IMDb rating:{" "}
-            <span className="rating">
-              {movieData.data?.data?.attributes?.rating}
-            </span>
-            / 10
+            <span className="rating">{data.movie.data.attributes.rating}</span>/
+            10
           </p>
         </section>
         <section className="main-info">
           <img
             className="cover-image"
-            src={
-              url +
-              movieData.data?.data?.attributes?.image?.data?.attributes?.url
-            }
+            src={url + data.movie.data.attributes?.image?.data?.attributes?.url}
             alt="movie-img"
           />
           <div className="right-side">
             <p className="description">
-              {movieData.data?.data?.attributes?.description}
+              {data.movie.data.attributes.description}
             </p>
             <p className="actors">
               Actors:{" "}
-              <span className="data">
-                {movieData.data?.data?.attributes?.actors}
-              </span>
+              <span className="data">{data.movie.data.attributes.actors}</span>
             </p>
             <p>
               Genre:
-              {movieData.data?.data?.attributes?.categories?.data.map(
-                (category) => {
-                  const { attributes, id } = category;
-                  return (
-                    <span className="data" key={id}>
-                      {" "}
-                      {attributes?.name}
-                    </span>
-                  );
-                }
-              )}
+              {data.movie.data.attributes?.categories?.data.map((category) => {
+                const { attributes, id } = category;
+                return (
+                  <span className="data" key={id}>
+                    {" "}
+                    {attributes?.name}
+                  </span>
+                );
+              })}
             </p>
             <p>
               Director:{" "}
               <span className="data">
-                {movieData.data?.data?.attributes?.director}
+                {data.movie.data?.attributes?.director}
               </span>
             </p>
             <p>
               Released:
               <span className="data">
                 {" "}
-                {movieData.data?.data?.attributes?.released}
+                {data.movie.data.attributes?.released}
               </span>
             </p>
             <p>
               Duration:{" "}
               <span className="data">
-                {movieData.data?.data?.attributes?.duration}
+                {data.movie.data?.attributes?.duration}
               </span>
             </p>
             <button
-              onClick={(e) => addToWatchlist(movieData?.data?.data.id, e)}
+              onClick={(e) => addToWatchlist(data.movie.data?.data.id, e)}
               id="add-to-watchlist"
             >
               Add to watchlist

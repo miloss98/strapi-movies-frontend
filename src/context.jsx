@@ -57,13 +57,15 @@ const MoviesProvider = ({ children }) => {
 
   //search/query refetch
   useEffect(() => {
+    // eslint-disable-next-line
     if (loading) return;
+    if (error) return;
     setFilteredData(
       data.movies.data.filter((movie) =>
         movie?.attributes?.name.toLowerCase().includes(search.toLowerCase())
       )
     );
-  }, [search, data]);
+  }, [search, data, error, loading]);
 
   //buttons
   const addToWatchlist = (id, e) => {
