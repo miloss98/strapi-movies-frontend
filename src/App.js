@@ -1,16 +1,38 @@
-import { Home, Watchlist, SingleMoviePage, About, Error } from "./pages/index";
+import { useContext } from "react";
+import {
+  Home,
+  Watchlist,
+  SingleMoviePage,
+  About,
+  Login,
+  Register,
+  Error,
+} from "./pages/index";
 import SharedLayout from "./components/SharedLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthContext } from "./modules/authcontext";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 const App = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
-          <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/movies/:movieID" element={<SingleMoviePage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="watchlist"
+            element={
+              <ProtectedRoute user={user}>
+                <Watchlist />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
