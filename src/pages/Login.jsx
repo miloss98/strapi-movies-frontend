@@ -9,7 +9,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
-  const { user, setUser, isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { setUser, setIsLoggedIn } = useContext(AuthContext);
   let navigate = useNavigate();
 
   const login = async (e) => {
