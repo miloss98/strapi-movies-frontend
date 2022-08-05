@@ -33,6 +33,9 @@ const Navbar = () => {
             {" "}
             Profile
           </NavLink>{" "}
+          <div className="logout-container">
+            <button className="logout-btn"> </button>
+          </div>
         </>
       ) : (
         <>

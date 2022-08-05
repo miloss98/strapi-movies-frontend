@@ -8,7 +8,7 @@
   background-color: gray;
 }
 .profile-container {
-  width: 80%;
+  width: 90%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -17,11 +17,14 @@
 }
 nav {
   width: 80%;
-  height: 80px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: red;
+  background-color: white;
+}
+.greetings {
+  margin-left: 1rem;
 }
 .profile-container h3 {
   font-size: 1.5rem;

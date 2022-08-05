@@ -10,8 +10,7 @@ const Profile = () => {
     <div className="profile-wrapper">
       <div className="profile-container">
         <nav>
-          <h2> Hello, {user.username} </h2>
-          <button className="logout-btn"> Loguot </button>
+          <h2 className="greetings"> Hello, {user.username} </h2>
         </nav>
         <section className="profile-page-content">
           <h3> Watchlist</h3>
