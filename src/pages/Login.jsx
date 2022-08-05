@@ -16,8 +16,8 @@ const Login = () => {
     e.preventDefault();
     await axios
       .post("http://localhost:1337/api/auth/local", {
-        identifier: "markomarkovic@gmaild.com",
-        password: "Strapi123",
+        identifier: username,
+        password: password,
       })
       .then((response) => {
         console.log(response.data);
@@ -46,12 +46,14 @@ const Login = () => {
             type="text"
             placeholder="Email"
             name="email"
+            onChange={(e) => setUsername(e.target.value)}
           />
           <input
             className="login-input-field"
             type="password"
             placeholder="Password"
             name="password"
+            onChange={(e) => setPassword(e.target.value)}
           />
           <button className="login-btn" onClick={login}>
             Login{" "}
