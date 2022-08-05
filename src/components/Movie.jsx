@@ -2,6 +2,9 @@ import "./../styles/components/movie.css";
 import { useContext } from "react";
 import { MoviesContext } from "./../modules/context";
 import { useNavigate } from "react-router-dom";
+//
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 const url = "http://localhost:1337";
 
@@ -51,9 +54,14 @@ const Movie = () => {
               <p>
                 Duration: <span> {attributes?.duration}</span>
               </p>
-              <p>
-                Rating: <span> {attributes?.rating} </span>
-              </p>
+              <div style={{ height: "50px", width: "50px" }}>
+                <CircularProgressbar
+                  value={attributes?.rating}
+                  minValue={1}
+                  maxValue={10}
+                  text={attributes?.rating}
+                />
+              </div>
             </section>
             <section className="read-more-container">
               <button
