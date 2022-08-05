@@ -27,8 +27,8 @@
 }
 /* logout */
 .logout-container {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
 }
 .logout-btn {
   margin-right: 1rem;
@@ -42,4 +42,7 @@
   outline: none;
   cursor: pointer;
   border-radius: 10px;
+}
+.logout-btn:hover {
+  filter: brightness(80%);
 }

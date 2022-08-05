@@ -1,10 +1,16 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../modules/authcontext";
 import { Home, Profile, Login, About } from "./../pages/index";
 import "./../styles/components/navbar.css";
 const Navbar = () => {
-  const { user, isLoggedIn } = useContext(AuthContext);
+  const { user, setUser, isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const logout = () => {
+    setUser("");
+    setIsLoggedIn(false);
+    navigate("/login");
+  };
 
   return (
     <div className="links-container">
@@ -34,7 +40,9 @@ const Navbar = () => {
             Profile
           </NavLink>{" "}
           <div className="logout-container">
-            <button className="logout-btn"> </button>
+            <button onClick={logout} className="logout-btn">
+              {" "}
+            </button>
           </div>
         </>
       ) : (
