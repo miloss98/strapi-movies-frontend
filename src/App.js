@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import {
   Home,
-  Watchlist,
+  Profile,
   SingleMoviePage,
   About,
   Login,
@@ -26,10 +26,10 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route
-            path="watchlist"
+            path="/profile"
             element={
               <ProtectedRoute user={user}>
-                <Watchlist />
+                <Profile />
               </ProtectedRoute>
             }
           />

@@ -25,7 +25,7 @@ const Login = () => {
         console.log("User token", response.data.jwt);
         setUser(response.data.user);
         setIsLoggedIn(true);
-        navigate("/watchlist");
+        navigate("/profile");
       })
       .catch((error) => {
         setMsg("Email / password is incorrect!");

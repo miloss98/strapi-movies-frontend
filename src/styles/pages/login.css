@@ -20,7 +20,7 @@
 .avatar-container {
   height: 30%;
   width: 30%;
-  background-image: url("./../../images/avatar.png");
+  background-image: url("./../../images/loginavatar.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

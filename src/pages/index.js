@@ -1,5 +1,5 @@
 import Home from "./Home";
-import Watchlist from "./Watchlist";
+import Profile from "./Profile";
 import SingleMoviePage from "./SingleMoviePage";
 import Login from "./Login";
 import Register from "./Register";
@@ -9,7 +9,7 @@ import Error from "./Error";
 
 export {
   Home,
-  Watchlist,
+  Profile,
   SingleMoviePage,
   Login,
   Register,
