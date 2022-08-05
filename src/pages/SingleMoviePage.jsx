@@ -5,6 +5,9 @@ import "./../styles/pages/singlemovie.css";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 import { useQuery } from "@apollo/client";
 import { SINGLEMOVIE } from "./../modules/queries";
+//
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 const SingleMoviePage = () => {
   const { addToWatchlist, alertBox, message } = useContext(MoviesContext);
@@ -37,11 +40,21 @@ const SingleMoviePage = () => {
             <h1 id="title"> {data.movie.data.attributes.name} </h1>
           </div>
 
-          <p>
-            IMDb rating:{" "}
-            <span className="rating">{data.movie.data.attributes.rating}</span>/
-            10
-          </p>
+          <div
+            style={{
+              width: 70,
+              height: 70,
+              paddingRight: "1rem",
+            }}
+          >
+            {/* IMDb rating: */}
+            <CircularProgressbar
+              value={data.movie.data.attributes.rating}
+              minValue={1}
+              maxValue={10}
+              text={data.movie.data.attributes.rating}
+            />
+          </div>
         </section>
         <section className="main-info">
           <img
