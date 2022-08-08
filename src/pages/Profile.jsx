@@ -4,7 +4,7 @@ import Watchlist from "./../components/Watchlist";
 import "./../styles/pages/profile.css";
 
 const Profile = () => {
-  const { user, setIsLoggedIn } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   console.log(user);
   return (
     <div className="profile-wrapper">

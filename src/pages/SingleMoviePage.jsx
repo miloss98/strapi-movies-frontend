@@ -3,9 +3,10 @@ import { MoviesContext } from "../modules/context";
 import { useNavigate, useParams } from "react-router-dom";
 import "./../styles/pages/singlemovie.css";
 import { HiArrowNarrowLeft } from "react-icons/hi";
+//graphql
 import { useQuery } from "@apollo/client";
 import { SINGLEMOVIE } from "./../modules/queries";
-//
+//ratings library
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 

@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../modules/authcontext";
 import { Home, Profile, Login, About } from "./../pages/index";
 import "./../styles/components/navbar.css";
 const Navbar = () => {
-  const { user, setUser, isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { user, setUser, setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const logout = () => {
     setUser("");

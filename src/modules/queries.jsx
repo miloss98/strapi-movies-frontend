@@ -62,21 +62,3 @@ export const SINGLEMOVIE = gql`
     }
   }
 `;
-export const LOGIN = gql`
-  mutation {
-    login(
-      input: {
-        identifier: "testuser@gmail.com"
-        password: "Strapi123"
-        provider: "local"
-      }
-    ) {
-      jwt
-      user {
-        id
-        username
-        email
-      }
-    }
-  }
-`;
