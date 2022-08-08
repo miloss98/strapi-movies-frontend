@@ -19,15 +19,8 @@ const Register = () => {
   };
 
   const handleRegister = async () => {
-    console.log("username", username);
-    console.log("email", email);
-    console.log("password", password);
     try {
-      const {
-        data: {
-          register: { jwt, user },
-        },
-      } = await register({
+      await register({
         variables: {
           username: username,
           email: email,
@@ -39,8 +32,6 @@ const Register = () => {
         setMsg("");
       }, "2000");
       resetFields();
-      console.log(jwt, "jwt");
-      console.log(user, "user");
     } catch (error) {
       setMsg("Registration failed, try again!");
       setTimeout(() => {
