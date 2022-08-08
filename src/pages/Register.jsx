@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./../styles/pages/register.css";
 //graph ql
 import { REGISTER } from "../modules/mutations";
-
-const DEFAULT_STATE = {
-  username: "",
-  email: "",
-  password: "",
-};
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
-  const [register, { error }] = useMutation(REGISTER);
+  const [register] = useMutation(REGISTER);
+
+  const resetFields = () => {
+    setUsername("");
+    setEmail("");
+    setPassword("");
+  };
 
   const handleRegister = async () => {
     console.log("username", username);
@@ -35,10 +35,18 @@ const Register = () => {
         },
       });
       setMsg("Registration successful!");
+      setTimeout(() => {
+        setMsg("");
+      }, "2000");
+      resetFields();
       console.log(jwt, "jwt");
       console.log(user, "user");
     } catch (error) {
-      setMsg(error);
+      setMsg("Registration failed, try again!");
+      setTimeout(() => {
+        setMsg("");
+      }, "2000");
+      resetFields();
     }
   };
 
@@ -46,13 +54,14 @@ const Register = () => {
     <div className="register-wrapper">
       <section className="register-container">
         <div className="register-avatar-container"></div>
-        <p> {msg} </p>
+        <p className="info-msg"> {msg} </p>
         <form className="register-form" onSubmit={(e) => e.preventDefault()}>
           <input
             className="register-input-field"
             type="text"
             placeholder="Username"
             name="username"
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
@@ -60,6 +69,7 @@ const Register = () => {
             type="text"
             placeholder="Email"
             name="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
@@ -67,6 +77,7 @@ const Register = () => {
             type="password"
             placeholder="Password"
             name="password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="register-btn" onClick={handleRegister}>
