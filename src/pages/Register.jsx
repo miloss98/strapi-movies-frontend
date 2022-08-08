@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./../styles/pages/register.css";
-//graph ql
+//graphql
+import { useMutation } from "@apollo/client";
 import { REGISTER } from "../modules/mutations";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [msg, setMsg] = useState("");
   const [register] = useMutation(REGISTER);
 
