@@ -9,44 +9,34 @@ import { LOGIN } from "../modules/mutations";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const [msg, setMsg] = useState("");
   const { setUser, setIsLoggedIn } = useContext(AuthContext);
+
   let navigate = useNavigate();
 
-  // const login = async (e) => {
-  //   e.preventDefault();
-  //   await axios
-  //     .post("http://localhost:1337/api/auth/local", {
-  //       identifier: username,
-  //       password: password,
-  //     })
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       console.log("User profile", response.data.user);
-  //       console.log("User token", response.data.jwt);
-  //       setUser(response.data.user);
-  //       setIsLoggedIn(true);
-  //       navigate("/profile");
-  //     })
-  //     .catch((error) => {
-  //       setMsg("Email / password is incorrect!");
-  //       setIsLoggedIn(false);
-  //       setTimeout(() => {
-  //         setMsg("");
-  //       }, "2000");
-  //     });
-  // };
+  const [login] = useMutation(LOGIN);
 
-  // const [login] = useMutation(LOGIN);
-
-  // login({ variables: { identifier: username, password: password } });
+  const handleLogin = async () => {
+    try {
+      await login({ variables: { identifier: username, password: password } });
+      setIsLoggedIn(true);
+      navigate("/profile");
+    } catch (error) {
+      setMsg("Email / password is incorrect!");
+      setIsLoggedIn(false);
+      setTimeout(() => {
+        setMsg("");
+      }, "2000");
+    }
+  };
 
   return (
     <div className="login-wrapper">
       <section className="login-container">
         <div className="avatar-container"></div>
-        <p> {msg} </p>
-        <form className="form">
+        <p className="info-msg"> {msg} </p>
+        <form className="form" onSubmit={(e) => e.preventDefault()}>
           <input
             className="login-input-field"
             type="text"
@@ -61,7 +51,9 @@ const Login = () => {
             name="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="login-btn">Login </button>
+          <button className="login-btn" onClick={handleLogin}>
+            Login{" "}
+          </button>
         </form>
 
         <p className="register-redirect">
