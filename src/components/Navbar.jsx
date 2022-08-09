@@ -5,9 +5,13 @@ import { Home, Profile, Login, About } from "./../pages/index";
 import "./../styles/components/navbar.css";
 import { BiLogOut } from "react-icons/bi";
 
+//test
+import ConfirmationModal from "./ConfirmationModal";
+
 const Navbar = () => {
   const { user, setUser, setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
+
   const logout = () => {
     setUser("");
     setIsLoggedIn(false);
@@ -41,11 +45,19 @@ const Navbar = () => {
             {" "}
             Profile
           </NavLink>{" "}
-          <div className="logout-container">
-            <button onClick={logout} className="logout-btn">
-              <BiLogOut className="logout-icon" />
-            </button>
-          </div>
+          <ConfirmationModal
+            title="Confirm"
+            description="Are you sure?"
+            callbackFunction={logout}
+          >
+            {(confirm) => (
+              <div className="logout-container">
+                <button className="logout-btn" onClick={confirm(logout)}>
+                  <BiLogOut className="logout-icon" />
+                </button>
+              </div>
+            )}
+          </ConfirmationModal>
         </>
       ) : (
         <>
