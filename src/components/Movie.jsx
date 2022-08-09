@@ -31,7 +31,7 @@ const Movie = () => {
               src={url + attributes?.image?.data?.attributes?.url}
               alt={attributes?.name}
             />
-            <section className="genres-container">
+            {/* <section className="genres-container">
               <p>
                 <span> Genre: </span>
                 {attributes?.categories?.data.map((category) => {
@@ -51,7 +51,7 @@ const Movie = () => {
               <p>
                 Duration: <span> {attributes?.duration}</span>
               </p>
-            </section>
+            </section> */}
             <section className="read-more-container">
               <button
                 onClick={() => navigate(`/movies/${id}`)}
