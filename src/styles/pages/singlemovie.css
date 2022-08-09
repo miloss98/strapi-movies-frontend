@@ -8,18 +8,19 @@
   background-color: var(--background);
 }
 .single-movie-container {
-  width: 70%;
-  height: 80%;
+  width: 65%;
+  height: 75%;
   background-color: black;
   color: white;
 }
+/* header */
 .movie-header {
-  height: 80px;
+  height: 70px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f40009;
+  background-color: #a9a9a9;
 }
 .left-side {
   display: flex;
@@ -27,9 +28,20 @@
   justify-content: center;
   align-items: center;
 }
+.right-side {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.progressbar-container {
+  width: 60px;
+  height: 60px;
+  padding-right: 2rem;
+}
 .go-back {
   margin-left: 2rem;
-  color: white;
+  color: orangered;
   height: 30px;
   width: 30px;
 }
@@ -39,20 +51,19 @@
 }
 #title {
   margin-left: 1rem;
-  color: gold;
+  color: black;
 }
-.movie-header p {
-  margin-right: 2rem;
-}
-.rating {
-  color: gold;
-}
+/* main content */
 .main-info {
   display: flex;
   width: 100%;
   height: 80%;
 }
-.right-side {
+.left-side-container {
+  height: 100%;
+  width: 40%;
+}
+.right-side-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -63,13 +74,15 @@
 }
 .cover-image {
   height: 100%;
-  width: 30%;
-  border-radius: 3px;
+  width: 100%;
 }
 .data {
   color: gold;
 }
 #add-to-watchlist {
+  position: absolute;
+  bottom: 100px;
+  right: 290px;
   border: none;
   background-color: blue;
   color: white;

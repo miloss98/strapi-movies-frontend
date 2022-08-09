@@ -7,7 +7,7 @@ import { HiArrowNarrowLeft } from "react-icons/hi";
 import { useQuery } from "@apollo/client";
 import { SINGLEMOVIE } from "./../modules/queries";
 //ratings library
-import { CircularProgressbar } from "react-circular-progressbar";
+import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 const SingleMoviePage = () => {
@@ -38,32 +38,37 @@ const SingleMoviePage = () => {
               className="go-back"
               onClick={() => navigate(-1)}
             />{" "}
-            <h1 id="title"> {data.movie.data.attributes.name} </h1>
+            <h2 id="title"> {data.movie.data.attributes.name} </h2>
           </div>
-
-          <div
-            style={{
-              width: 70,
-              height: 70,
-              paddingRight: "1rem",
-            }}
-          >
-            {/* IMDb rating: */}
-            <CircularProgressbar
-              value={data.movie.data.attributes.rating}
-              minValue={1}
-              maxValue={10}
-              text={data.movie.data.attributes.rating}
-            />
+          <div className="right-side">
+            <div className="progressbar-container">
+              {/* IMDb rating: */}
+              <CircularProgressbar
+                value={data.movie.data.attributes.rating}
+                minValue={1}
+                maxValue={10}
+                text={data.movie.data.attributes.rating}
+                styles={buildStyles({
+                  textSize: "2rem",
+                  textColor: "black",
+                  trailColor: "black",
+                  pathColor: "orangered",
+                })}
+              />
+            </div>
           </div>
         </section>
         <section className="main-info">
-          <img
-            className="cover-image"
-            src={url + data.movie.data.attributes?.image?.data?.attributes?.url}
-            alt="movie-img"
-          />
-          <div className="right-side">
+          <div className="left-side-container">
+            <img
+              className="cover-image"
+              src={
+                url + data.movie.data.attributes?.image?.data?.attributes?.url
+              }
+              alt="movie-img"
+            />
+          </div>
+          <div className="right-side-container">
             <p className="description">
               {data.movie.data.attributes.description}
             </p>
