@@ -11,15 +11,24 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const [msg, setMsg] = useState("");
-  const { setUser, setIsLoggedIn } = useContext(AuthContext);
+  const { user, setUser, setIsLoggedIn } = useContext(AuthContext);
+  //const [profile, setProfile] = useState("");
 
   let navigate = useNavigate();
 
-  const [login] = useMutation(LOGIN);
+  const [login, { data }] = useMutation(LOGIN);
 
   const handleLogin = async () => {
     try {
-      await login({ variables: { identifier: username, password: password } });
+      const data = await login({
+        variables: { identifier: username, password: password },
+      });
+      setUser({
+        name: data?.data?.login?.user?.username,
+        username: data?.data?.login?.user?.email,
+        jwt: data?.data?.login?.jwt,
+      });
+      console.log(user);
       setIsLoggedIn(true);
       navigate("/profile");
     } catch (error) {
