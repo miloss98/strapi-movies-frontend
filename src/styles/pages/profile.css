@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: gray;
+  background-color: var(--background);
 }
 .profile-container {
   width: 90%;
@@ -38,4 +38,7 @@ nav {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+.profile-page-content h3 {
+  color: white;
 }

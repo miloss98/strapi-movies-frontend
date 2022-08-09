@@ -4,12 +4,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #818181;
+  background-color: var(--background);
 }
 .about-title {
   text-align: center;
   font-size: 2.5rem;
-  color: red;
+  color: var(--font-gray);
 }
 .about-container {
   display: flex;
