@@ -66,12 +66,12 @@
 .search-btn {
   padding: 8px;
   margin-left: 0.5rem;
-  background-color: var(--font-white);
-  border: none;
-  color: black;
+  background-color: var(--background);
+  border: 1px solid var(--font-white);
+  color: var(--font-white);
   font-size: 0.8rem;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .search-btn:hover {
   cursor: pointer;
