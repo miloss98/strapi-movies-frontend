@@ -48,10 +48,13 @@
   font-size: 0.9rem;
   border: none;
   outline: none;
+  background-color: var(--background);
+  border: 1px solid var(--font-gray);
+  color: white;
 }
 .input-field:focus {
-  border: none;
-  outline: none;
+  background-color: var(--background);
+  border: 1px solid var(--font-white);
 }
 .input-field::placeholder {
   font-style: italic;
@@ -60,16 +63,16 @@
   padding: 8px;
   width: 6rem;
   margin-left: 0.5rem;
-  background-color: red;
+  background-color: var(--background);
+  border: 1px solid var(--font-gray);
   color: white;
   font-size: 1rem;
   font-weight: bold;
-  border: none;
   border-radius: 3px;
 }
 .search-btn:hover {
   cursor: pointer;
-  filter: brightness(90%);
+  filter: brightness(80%);
 }
 /* wrapper */
 .movies-wrapper {
