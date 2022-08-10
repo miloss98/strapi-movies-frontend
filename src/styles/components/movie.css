@@ -62,10 +62,10 @@
   border: none;
   border-radius: 3px;
   background-color: var(--background);
-  border: 1px solid white;
+  border: 1px solid gray;
   color: white;
   height: 60%;
-  width: 45%;
+  width: 40%;
   font-size: 0.8rem;
   letter-spacing: 1px;
   font-weight: 600;
@@ -78,10 +78,10 @@
   border: none;
   border-radius: 3px;
   background-color: var(--background);
-  border: 1px solid white;
+  border: 1px solid gray;
   color: white;
   height: 60%;
-  width: 50%;
+  width: 55%;
   font-size: 0.8rem;
   letter-spacing: 1px;
   font-weight: 600;
