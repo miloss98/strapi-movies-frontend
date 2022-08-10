@@ -12,11 +12,10 @@ const Login = () => {
 
   const [msg, setMsg] = useState("");
   const { user, setUser, setIsLoggedIn } = useContext(AuthContext);
-  //const [profile, setProfile] = useState("");
 
   let navigate = useNavigate();
 
-  const [login, { data }] = useMutation(LOGIN);
+  const [login] = useMutation(LOGIN);
 
   const handleLogin = async () => {
     try {

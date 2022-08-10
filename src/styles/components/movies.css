@@ -72,13 +72,24 @@
   filter: brightness(90%);
 }
 /* wrapper */
-.movies-container {
-  margin-top: 2rem;
+.movies-wrapper {
   width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background);
+}
+.movies-container {
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: auto auto auto auto;
   justify-content: center;
   align-content: center;
-  gap: 20px;
+  column-gap: 30px;
+  row-gap: 30px;
   border-radius: 3px;
+  margin-top: 2rem;
 }

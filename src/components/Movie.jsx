@@ -26,11 +26,13 @@ const Movie = () => {
             <section className="movie-title-container">
               <h1 className="movie-title"> {attributes?.name} </h1>
             </section>
-            <img
-              className="movie-img"
-              src={url + attributes?.image?.data?.attributes?.url}
-              alt={attributes?.name}
-            />
+            <section className="movie-img-container">
+              <img
+                className="movie-img"
+                src={url + attributes?.image?.data?.attributes?.url}
+                alt={attributes?.name}
+              />
+            </section>
             {/* <section className="genres-container">
               <p>
                 <span> Genre: </span>

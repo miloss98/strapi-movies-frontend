@@ -31,7 +31,7 @@ const Movies = () => {
     );
   }
   return (
-    <>
+    <div className="movies-wrapper">
       <section className="search-bar-container">
         <div className="search-div">
           <input
@@ -49,7 +49,7 @@ const Movies = () => {
       <div className="movies-container">
         <Movie />
       </div>
-    </>
+    </div>
   );
 };
 

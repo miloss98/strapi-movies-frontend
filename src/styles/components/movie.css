@@ -19,73 +19,53 @@
 }
 /* movie card */
 .movie-card {
-  height: 400px;
-  width: 320px;
-
+  height: 500px;
+  width: 280px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   background-color: var(--background);
   color: white;
   border-radius: 3px;
 }
 .movie-title-container {
-  height: 8%;
-  width: 80%;
+  height: 10%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0.5rem 0rem 0.5rem 0rem;
 }
 .movie-title {
   letter-spacing: 1px;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  color: var(--font-gray);
+}
+.movie-img-container {
+  height: 70%;
+  width: 100%;
 }
 .movie-img {
   height: 100%;
   width: 100%;
 }
-.genres-container {
-  display: flex;
-  justify-content: center;
-  width: 90%;
-  height: 5%;
-}
-.genre {
-  color: gold;
-}
-.other-info-container {
-  height: 12%;
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.other-info-container p {
-  text-align: center;
-}
-.other-info-container span {
-  color: gold;
-  white-space: nowrap;
-}
 .read-more-container {
-  width: 90%;
-  height: 5%;
+  width: 100%;
+  height: 10%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 .read-more {
   border: none;
   border-radius: 3px;
-  background-color: red;
+  background-color: var(--background);
+  border: 1px solid white;
   color: white;
-  height: 100%;
-  width: 30%;
+  height: 60%;
+  width: 45%;
   font-size: 0.8rem;
   letter-spacing: 1px;
   font-weight: 600;
@@ -97,11 +77,12 @@
 .add-to-watchlist {
   border: none;
   border-radius: 3px;
-  background-color: blue;
+  background-color: var(--background);
+  border: 1px solid white;
   color: white;
-  height: 100%;
-  width: 40%;
-  font-size: 0.7rem;
+  height: 60%;
+  width: 50%;
+  font-size: 0.8rem;
   letter-spacing: 1px;
   font-weight: 600;
 }
