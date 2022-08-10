@@ -7,7 +7,6 @@ const MoviesContext = React.createContext();
 const MoviesProvider = ({ children }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [search, setSearch] = useState("");
-  const [movieData, setMovieData] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
 
   const { loading, error, data } = useQuery(MOVIES);
@@ -72,8 +71,6 @@ const MoviesProvider = ({ children }) => {
         setFilteredData,
         searchValue,
         searchMovies,
-        movieData,
-        setMovieData,
         watchlist,
         setWatchlist,
         addToWatchlist,
