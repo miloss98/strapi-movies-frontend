@@ -7,11 +7,11 @@ import {
   Login,
   Register,
   Error,
+  ProtectedRoute,
 } from "./pages/index";
-import SharedLayout from "./components/SharedLayout";
+import { SharedLayout } from "./components/index";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthContext } from "./modules/authcontext";
-import ProtectedRoute from "./pages/ProtectedRoute";
 
 const App = () => {
   const { user } = useContext(AuthContext);

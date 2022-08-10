@@ -1,4 +1,4 @@
-import Movies from "../components/Movies";
+import { Movies } from "../components/index";
 import "./../styles/pages/home.css";
 const Home = () => {
   return (

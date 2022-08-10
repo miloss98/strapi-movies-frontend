@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../modules/authcontext";
-import Watchlist from "./../components/Watchlist";
+import { Watchlist } from "./../components/index";
 import "./../styles/pages/profile.css";
 
 const Profile = () => {

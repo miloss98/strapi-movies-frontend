@@ -1,4 +1,4 @@
-import Movie from "./Movie";
+import { Movie } from "./index";
 import "./../styles/components/movies.css";
 import { useContext } from "react";
 import { MoviesContext } from "../modules/context";

@@ -1,4 +1,4 @@
-import Header from "./Header";
+import { Header } from "./index";
 import { Outlet } from "react-router-dom";
 const SharedLayout = () => {
   return (

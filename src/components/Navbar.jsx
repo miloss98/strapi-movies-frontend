@@ -6,7 +6,7 @@ import "./../styles/components/navbar.css";
 import { BiLogOut } from "react-icons/bi";
 
 //test
-import ConfirmationModal from "./ConfirmationModal";
+import { ConfirmationModal } from "./index";
 
 const Navbar = () => {
   const { user, setUser, setIsLoggedIn } = useContext(AuthContext);
