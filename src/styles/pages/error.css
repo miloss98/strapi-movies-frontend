@@ -1,0 +1,38 @@
+.error-page-wrapper {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background);
+}
+.error-page-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-404 {
+  color: var(--font-white);
+}
+.error-msg {
+  color: var(--font-gray);
+  margin-bottom: 2rem;
+}
+.back-home {
+  border: none;
+  background-color: var(--font-white);
+  color: black;
+  border-radius: 3px;
+  padding: 8px;
+  font-weight: bold;
+}
+.back-home:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+}

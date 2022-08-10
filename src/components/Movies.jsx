@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { MoviesContext } from "../modules/context";
 
 const Movies = () => {
-  const { searchValue, searchMovies, filteredData } = useContext(MoviesContext);
+  const { filteredData } = useContext(MoviesContext);
   // eslint-disable-next-line
   if (filteredData == "" && filteredData.length < 1) {
     return (
