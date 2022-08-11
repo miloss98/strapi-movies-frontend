@@ -1,10 +1,16 @@
 import { useContext } from "react";
 import { MoviesContext } from "../modules/context";
-import { HiOutlineSearch } from "react-icons/hi";
+import { HiOutlineSearch, HiOutlineX } from "react-icons/hi";
+
 import "../styles/components/search.css";
 
 const Search = () => {
   const { searchMovies, searchValue, filteredData } = useContext(MoviesContext);
+
+  //   const clearSearchField = () => {
+
+  //   };
+
   return (
     <>
       <div className="search-div">
@@ -14,11 +20,18 @@ const Search = () => {
           type="text"
           placeholder="e.g. Inception"
           ref={searchValue}
-        ></input>
+        />
+        {console.log(searchValue.current.value)}
         <div style={{ height: "25px", width: "25px" }}>
-          <HiOutlineSearch
-            style={{ color: "white", height: "100%", width: "100%" }}
-          />
+          {searchValue.current.value ? (
+            <HiOutlineX
+              style={{ color: "white", height: "100%", width: "100%" }}
+            />
+          ) : (
+            <HiOutlineSearch
+              style={{ color: "white", height: "100%", width: "100%" }}
+            />
+          )}
         </div>
       </div>
       {filteredData.length != 0 && (
