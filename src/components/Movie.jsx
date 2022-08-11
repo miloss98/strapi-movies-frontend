@@ -33,27 +33,6 @@ const Movie = () => {
                 alt={attributes?.name}
               />
             </section>
-            {/* <section className="genres-container">
-              <p>
-                <span> Genre: </span>
-                {attributes?.categories?.data.map((category) => {
-                  const { attributes, id } = category;
-                  return (
-                    <span className="genre" key={id}>
-                      {attributes?.name}{" "}
-                    </span>
-                  );
-                })}
-              </p>
-            </section>
-            <section className="other-info-container">
-              <p>
-                Released: <span> {attributes?.released} </span>
-              </p>
-              <p>
-                Duration: <span> {attributes?.duration}</span>
-              </p>
-            </section> */}
             <section className="read-more-container">
               <button
                 onClick={() => navigate(`/movies/${id}`)}
