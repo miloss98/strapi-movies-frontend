@@ -1,10 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { MOVIES } from "./queries";
 import { useQuery } from "@apollo/client";
+import { AuthContext } from "./authcontext";
+import { useNavigate } from "react-router-dom";
 
 const MoviesContext = React.createContext();
 
 const MoviesProvider = ({ children }) => {
+  const { user, isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const [filteredData, setFilteredData] = useState([]);
   const [search, setSearch] = useState("");
   const [watchlist, setWatchlist] = useState([]);
@@ -42,19 +47,24 @@ const MoviesProvider = ({ children }) => {
 
   //buttons
   const addToWatchlist = (id, e) => {
-    e.preventDefault();
-    const newWatchlistItem = data.movies.data.filter(
-      (movie) => movie.id === id
-    );
-    setWatchlist([...watchlist, newWatchlistItem]);
-    setMessage(added);
-    setAlertBox(true);
+    if (user && isLoggedIn) {
+      e.preventDefault();
+      const newWatchlistItem = data.movies.data.filter(
+        (movie) => movie.id === id
+      );
+      setWatchlist([...watchlist, newWatchlistItem]);
+      setMessage(added);
+      setAlertBox(true);
 
-    setTimeout(() => {
-      setAlertBox(false);
-      setMessage("");
-    }, 1500);
+      setTimeout(() => {
+        setAlertBox(false);
+        setMessage("");
+      }, 1500);
+    } else {
+      navigate("/login");
+    }
   };
+
   const removeFromWatchlist = (id, e) => {
     e.preventDefault();
     const newWatchlist = watchlist.filter((movie) => movie[0].id !== id);

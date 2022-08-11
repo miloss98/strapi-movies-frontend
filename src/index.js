@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 import App from "./App";
+import { BrowserRouter } from "react-router-dom";
 import { MoviesProvider } from "./modules/context";
 import { AuthProvider } from "./modules/authcontext";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
@@ -15,12 +16,14 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <AuthProvider>
-        <MoviesProvider>
-          <App />
-        </MoviesProvider>
-      </AuthProvider>
-    </ApolloProvider>
+    <BrowserRouter>
+      <ApolloProvider client={client}>
+        <AuthProvider>
+          <MoviesProvider>
+            <App />
+          </MoviesProvider>
+        </AuthProvider>
+      </ApolloProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
