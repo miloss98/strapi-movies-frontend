@@ -35,20 +35,16 @@
 .input-field::placeholder {
   font-style: italic;
 }
-.search-btn {
-  padding: 8px;
-  margin-left: 0.5rem;
-  background-color: var(--background);
-  border: 1px solid var(--font-white);
-  color: var(--font-white);
-  font-size: 0.8rem;
-  font-weight: bold;
-  border-radius: 10px;
+.btn {
+  color: white;
+  height: 100%;
+  width: 100%;
 }
-.search-btn:hover {
+.clear-btn:hover {
   cursor: pointer;
   filter: brightness(80%);
 }
+
 /* search results */
 .search-results-container {
   width: 450px;

@@ -76,6 +76,8 @@ const MoviesProvider = ({ children }) => {
         setFilteredData,
         searchValue,
         searchMovies,
+        search,
+        setSearch,
         watchlist,
         setWatchlist,
         addToWatchlist,

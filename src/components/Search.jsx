@@ -1,15 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MoviesContext } from "../modules/context";
 import { HiOutlineSearch, HiOutlineX } from "react-icons/hi";
 
 import "../styles/components/search.css";
 
 const Search = () => {
-  const { searchMovies, searchValue, filteredData } = useContext(MoviesContext);
-
-  //   const clearSearchField = () => {
-
-  //   };
+  const { searchMovies, searchValue, filteredData, search, setSearch } =
+    useContext(MoviesContext);
 
   return (
     <>
@@ -18,17 +15,20 @@ const Search = () => {
           onChange={searchMovies}
           className="input-field"
           type="text"
+          value={search}
           placeholder="e.g. Inception"
           ref={searchValue}
         />
-        {console.log(searchValue.current.value)}
+
         <div style={{ height: "25px", width: "25px" }}>
           {searchValue.current.value ? (
             <HiOutlineX
-              style={{ color: "white", height: "100%", width: "100%" }}
+              onClick={() => setSearch("")}
+              className="btn clear-btn"
             />
           ) : (
             <HiOutlineSearch
+              className="btn"
               style={{ color: "white", height: "100%", width: "100%" }}
             />
           )}
