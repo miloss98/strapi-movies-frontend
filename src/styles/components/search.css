@@ -59,10 +59,12 @@
   left: 35%;
   overflow: hidden;
   overflow-y: auto;
-  background-color: var(--background);
+
   color: var(--font-white);
   border: 1px solid var(--font-gray);
   border-radius: 3px;
+  box-shadow: inset 0 0 50px 10px rgba(12, 17, 27, 0.2);
+  background-color: rgba(12, 17, 27, 0.7);
 }
 .single-movie-suggestion-container {
   display: flex;
