@@ -16,12 +16,13 @@ const Header = () => {
       <section className="search-bar-container">
         <div className="search-div">
           <input
+            onChange={searchMovies}
             className="input-field"
             type="text"
             placeholder="e.g. Inception"
             ref={searchValue}
           ></input>
-          <button onClick={searchMovies} className="search-btn" type="click">
+          <button onChange={searchMovies} className="search-btn" type="click">
             Search
           </button>
         </div>

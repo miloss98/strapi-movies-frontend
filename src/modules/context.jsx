@@ -8,6 +8,7 @@ const MoviesProvider = ({ children }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [search, setSearch] = useState("");
   const [watchlist, setWatchlist] = useState([]);
+  const [showSlider, setShowSlider] = useState(true);
 
   const { loading, error, data } = useQuery(MOVIES);
 
@@ -15,6 +16,12 @@ const MoviesProvider = ({ children }) => {
   const searchValue = useRef("");
   const searchMovies = () => {
     setSearch(searchValue.current.value);
+
+    if (searchValue.current.value.length >= 1) {
+      setShowSlider(false);
+    } else {
+      setShowSlider(true);
+    }
   };
 
   //alert
@@ -77,6 +84,8 @@ const MoviesProvider = ({ children }) => {
         removeFromWatchlist,
         alertBox,
         message,
+        showSlider,
+        setShowSlider,
       }}
     >
       {children}
