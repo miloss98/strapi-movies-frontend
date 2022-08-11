@@ -8,7 +8,7 @@ const MoviesProvider = ({ children }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [search, setSearch] = useState("");
   const [watchlist, setWatchlist] = useState([]);
-  const [showSlider, setShowSlider] = useState(true);
+  const [allMovies, setAllMovies] = useState([]);
 
   const { loading, error, data } = useQuery(MOVIES);
 
@@ -16,12 +16,6 @@ const MoviesProvider = ({ children }) => {
   const searchValue = useRef("");
   const searchMovies = () => {
     setSearch(searchValue.current.value);
-
-    if (searchValue.current.value.length >= 1) {
-      setShowSlider(false);
-    } else {
-      setShowSlider(true);
-    }
   };
 
   //alert
@@ -32,9 +26,9 @@ const MoviesProvider = ({ children }) => {
 
   //search/query refetch
   useEffect(() => {
-    // eslint-disable-next-line
     if (loading) return;
     if (error) return;
+    setAllMovies(data.movies.data);
     setFilteredData(
       data.movies.data.filter((movie) =>
         movie?.attributes?.name.toLowerCase().includes(search.toLowerCase())
@@ -73,7 +67,7 @@ const MoviesProvider = ({ children }) => {
   return (
     <MoviesContext.Provider
       value={{
-        data,
+        allMovies,
         filteredData,
         setFilteredData,
         searchValue,
@@ -84,8 +78,6 @@ const MoviesProvider = ({ children }) => {
         removeFromWatchlist,
         alertBox,
         message,
-        showSlider,
-        setShowSlider,
       }}
     >
       {children}

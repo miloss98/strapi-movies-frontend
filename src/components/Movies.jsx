@@ -4,9 +4,9 @@ import { useContext } from "react";
 import { MoviesContext } from "../modules/context";
 
 const Movies = () => {
-  const { filteredData } = useContext(MoviesContext);
-  // eslint-disable-next-line
-  if (filteredData == "" && filteredData.length < 1) {
+  const { allMovies } = useContext(MoviesContext);
+
+  if (allMovies == "" && allMovies.length < 1) {
     return (
       <div className="no-movies-container">
         <div id="no-movies">
