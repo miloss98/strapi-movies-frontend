@@ -29,11 +29,15 @@ const MoviesProvider = ({ children }) => {
     if (loading) return;
     if (error) return;
     setAllMovies(data.movies.data);
-    setFilteredData(
-      data.movies.data.filter((movie) =>
-        movie?.attributes?.name.toLowerCase().includes(search.toLowerCase())
-      )
-    );
+    if (search === "") {
+      setFilteredData([]);
+    } else {
+      setFilteredData(
+        data.movies.data.filter((movie) =>
+          movie?.attributes?.name.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+    }
   }, [search, data, error, loading]);
 
   //buttons

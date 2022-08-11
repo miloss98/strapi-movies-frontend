@@ -21,12 +21,29 @@ const Search = () => {
           />
         </div>
       </div>
-      <section className="search-results-container">
-        {filteredData.map((movie) => {
-          const { attributes, id } = movie;
-          return <h1 key={id}> {attributes.name}</h1>;
-        })}
-      </section>
+      {filteredData.length != 0 && (
+        <section className="search-results-container">
+          {filteredData.map((movie) => {
+            const { attributes, id } = movie;
+            return (
+              <div key={id} className="single-movie-suggestion-container">
+                <section id="suggestion-info-title">
+                  <h4>{attributes.name}</h4>
+                </section>
+                <section className="suggestion-info">
+                  <p> {attributes.rating}</p>
+                </section>
+                <section className="suggestion-info">
+                  <p> {attributes.duration}</p>
+                </section>
+                <section className="suggestion-info">
+                  <p> {attributes.released}</p>
+                </section>
+              </div>
+            );
+          })}
+        </section>
+      )}
     </>
   );
 };
