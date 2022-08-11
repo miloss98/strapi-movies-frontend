@@ -1,12 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { MoviesContext } from "../modules/context";
 import { HiOutlineSearch, HiOutlineX } from "react-icons/hi";
-
 import "../styles/components/search.css";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const { searchMovies, searchValue, filteredData, search, setSearch } =
     useContext(MoviesContext);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -39,7 +41,11 @@ const Search = () => {
           {filteredData.map((movie) => {
             const { attributes, id } = movie;
             return (
-              <div key={id} className="single-movie-suggestion-container">
+              <div
+                onClick={() => navigate(`/movies/${id}`)}
+                key={id}
+                className="single-movie-suggestion-container"
+              >
                 <section id="suggestion-info-title">
                   <h4>{attributes.name}</h4>
                 </section>
