@@ -62,3 +62,24 @@ export const SINGLEMOVIE = gql`
     }
   }
 `;
+
+export const SLIDER = gql`
+  query {
+    sliders {
+      data {
+        id
+        attributes {
+          name
+          images {
+            data {
+              attributes {
+                name
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
