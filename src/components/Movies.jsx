@@ -6,7 +6,7 @@ import { MoviesContext } from "../modules/context";
 const Movies = () => {
   const { allMovies } = useContext(MoviesContext);
 
-  if (allMovies == "" && allMovies.length < 1) {
+  if (allMovies === "" && allMovies.length < 1) {
     return (
       <div className="no-movies-container">
         <div id="no-movies">

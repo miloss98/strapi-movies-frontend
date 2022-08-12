@@ -36,7 +36,7 @@ const Search = () => {
           )}
         </div>
       </div>
-      {filteredData.length != 0 && (
+      {filteredData.length !== 0 && (
         <section className="search-results-container">
           {filteredData.map((movie) => {
             const { attributes, id } = movie;

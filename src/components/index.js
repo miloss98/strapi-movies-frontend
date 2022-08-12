@@ -6,6 +6,7 @@ import Movies from "./Movies";
 import Slider from "./Slider";
 import Watchlist from "./Watchlist";
 import ConfirmationModal from "./ConfirmationModal";
+import Footer from "./Footer";
 import SharedLayout from "./SharedLayout";
 
 export {
@@ -17,5 +18,6 @@ export {
   Slider,
   Watchlist,
   ConfirmationModal,
+  Footer,
   SharedLayout,
 };

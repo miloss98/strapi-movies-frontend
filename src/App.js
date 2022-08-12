@@ -10,7 +10,7 @@ import {
   ProtectedRoute,
 } from "./pages/index";
 import { SharedLayout } from "./components/index";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { AuthContext } from "./modules/authcontext";
 
 const App = () => {

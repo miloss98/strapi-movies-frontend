@@ -1,4 +1,4 @@
-import { Movies, Slider } from "../components/index";
+import { Movies, Slider, Footer } from "../components/index";
 import "./../styles/pages/home.css";
 
 const Home = () => {
@@ -6,6 +6,7 @@ const Home = () => {
     <div className="wrapper">
       <Slider />
       <Movies />
+      <Footer />
     </div>
   );
 };
