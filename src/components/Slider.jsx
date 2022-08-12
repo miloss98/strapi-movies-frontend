@@ -35,7 +35,7 @@ const Slider = () => {
       >
         {sliderData.map((sliderImage) => {
           const { attributes, id } = sliderImage;
-          console.log(attributes);
+
           return (
             <SwiperSlide key={id} className="swiperslide">
               <img

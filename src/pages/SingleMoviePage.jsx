@@ -22,6 +22,7 @@ const SingleMoviePage = () => {
   });
   if (loading) return <p> Loading,..</p>;
   if (error) return <p> Error! </p>;
+  console.log(data.movie.data);
 
   return (
     <>
@@ -114,7 +115,7 @@ const SingleMoviePage = () => {
                 </span>
               </p>
               <button
-                onClick={(e) => addToWatchlist(data.movie.data?.data?.id, e)}
+                onClick={(e) => addToWatchlist(movieID, e)}
                 id="add-to-watchlist"
               >
                 Add to watchlist
