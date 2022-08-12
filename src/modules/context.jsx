@@ -34,6 +34,7 @@ const MoviesProvider = ({ children }) => {
     if (loading) return;
     if (error) return;
     setAllMovies(data.movies.data);
+
     if (search === "") {
       setFilteredData([]);
     } else {
@@ -67,7 +68,10 @@ const MoviesProvider = ({ children }) => {
 
   const removeFromWatchlist = (id, e) => {
     e.preventDefault();
-    const newWatchlist = watchlist.filter((movie) => movie[0].id !== id);
+    const newWatchlist = watchlist.filter((movie) => {
+      return movie[0].id !== id;
+    });
+
     setWatchlist(newWatchlist);
     setMessage(removed);
     setAlertBox(true);

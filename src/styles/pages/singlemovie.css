@@ -94,3 +94,22 @@
   cursor: pointer;
   filter: brightness(80%);
 }
+/* Alert box */
+.alert-box-add {
+  position: fixed;
+  height: 50px;
+  width: 20%;
+  background-color: blue;
+  top: 85%;
+  left: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.alert-message-add {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

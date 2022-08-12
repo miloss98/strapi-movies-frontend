@@ -29,6 +29,7 @@ const Watchlist = () => {
         {watchlist.map((movie) => {
           return movie.map((item) => {
             const { attributes, id } = item;
+
             return (
               <div className="single-wl-movie-container" key={id}>
                 <section className="info">

@@ -21,7 +21,7 @@ const Slider = () => {
     if (error) return;
     setSliderData(data.sliders.data);
   }, [data, error, loading]);
-  console.log(sliderData);
+
   return (
     <div className="slider-wrapper">
       <Swiper
