@@ -52,8 +52,8 @@ const SingleMoviePage = () => {
                   text={data.movie.data.attributes.rating}
                   styles={buildStyles({
                     textSize: "2rem",
-                    textColor: "black",
-                    trailColor: "black",
+                    textColor: "white",
+                    trailColor: "gray",
                     pathColor: "orangered",
                   })}
                 />

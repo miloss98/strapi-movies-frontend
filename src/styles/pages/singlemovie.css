@@ -20,7 +20,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #a9a9a9;
 }
 .left-side {
   display: flex;
@@ -41,7 +40,7 @@
 }
 .go-back {
   margin-left: 2rem;
-  color: orangered;
+  color: var(--font-white);
   height: 30px;
   width: 30px;
 }
@@ -50,8 +49,9 @@
   filter: brightness(80%);
 }
 #title {
-  margin-left: 1rem;
-  color: black;
+  margin-left: 1.5rem;
+  color: var(--font-gray);
+  font-weight: 400;
 }
 /* main content */
 .main-info {
@@ -77,15 +77,18 @@
   width: 100%;
 }
 .data {
-  color: gold;
+  color: orangered;
+}
+.description {
+  color: orangered;
 }
 #add-to-watchlist {
   position: absolute;
   bottom: 100px;
   right: 290px;
-  border: none;
-  background-color: blue;
-  color: white;
+  border: 1px solid var(--font-white);
+  background-color: var(--background);
+  color: var(--font-white);
   margin-top: 1rem;
   padding: 10px;
   border-radius: 5px;
