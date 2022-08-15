@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { MoviesContext } from "../modules/context";
-import { navigate, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Home } from "../pages/index";
 import "./../styles/components/watchlist.css";
 const Watchlist = () => {
