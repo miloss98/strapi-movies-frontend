@@ -21,10 +21,15 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: var(--font-gray);
 }
 .greetings {
   margin-left: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.greetings span {
+  color: blue;
 }
 .profile-container h3 {
   font-size: 1.5rem;

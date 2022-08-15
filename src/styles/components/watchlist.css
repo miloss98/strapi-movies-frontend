@@ -14,8 +14,9 @@
 }
 .nav-find-movies {
   font-size: 0.8rem;
-  background-color: red;
+  background-color: var(--background);
   text-decoration: none;
+  border: 1px solid white;
   color: white;
   padding: 10px;
   border-radius: 5px;

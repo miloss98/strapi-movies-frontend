@@ -10,7 +10,10 @@ const Profile = () => {
     <div className="profile-wrapper">
       <div className="profile-container">
         <nav>
-          <h2 className="greetings"> Hello, {user.name} </h2>
+          <h2 className="greetings">
+            {" "}
+            Hello, <span> {user.name} </span>
+          </h2>
         </nav>
         <section className="profile-page-content">
           <h3> Watchlist</h3>
