@@ -33,17 +33,20 @@ const Watchlist = () => {
             return (
               <div className="single-wl-movie-container" key={id}>
                 <section className="info">
-                  <h3 id="wl-movie-title"> {attributes.name}</h3>
+                  <button className="wl-navigate">
+                    <h3 id="wl-movie-title"> {attributes.name}</h3>
+                  </button>
                 </section>
                 <section className="info">
                   <p>
-                    Rating: <span className="data"> {attributes.rating} </span>{" "}
-                    / 10
+                    Rating:{" "}
+                    <span className="wl-data"> {attributes.rating} </span> / 10
                   </p>
                 </section>
                 <section className="info">
                   <p>
-                    Year: <span className="data">{attributes.released} </span>
+                    Year:{" "}
+                    <span className="wl-data">{attributes.released} </span>
                   </p>
                 </section>
                 <section className="rmv-container">

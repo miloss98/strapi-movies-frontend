@@ -1,9 +1,9 @@
 .profile-wrapper {
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: var(--background);
 }
@@ -27,13 +27,14 @@ nav {
   margin-left: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 .greetings span {
-  color: blue;
+  color: darkblue;
 }
 .profile-container h3 {
   font-size: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 0;
 }
 /* content */

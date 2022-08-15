@@ -33,6 +33,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 .single-wl-movie-container {
   display: flex;
@@ -45,10 +46,19 @@
   border-radius: 5px;
   border: 1px solid white;
 }
+.wl-navigate {
+  background-color: var(--background);
+  border: none;
+}
+.wl-navigate:hover {
+  filter: brightness(80%);
+  cursor: pointer;
+}
 #wl-movie-title {
   font-size: 1rem;
-  color: orangered;
+  color: var(--font-white);
   margin: 0;
+  text-decoration: underline;
 }
 .info {
   display: flex;
@@ -58,7 +68,10 @@
   height: 60px;
   width: 30%;
   margin-left: 1rem;
-  color: white;
+  color: var(--font-gray);
+}
+.wl-data {
+  color: orange;
 }
 .rmv-container {
   width: 10%;
@@ -69,10 +82,11 @@
 }
 .remove-button {
   border: none;
-  background-color: orangered;
+  background-color: var(--background);
+  border: 1px solid red;
   padding: 8px;
   font-weight: 600;
-  color: white;
+  color: red;
 }
 .remove-button:hover {
   cursor: pointer;
@@ -80,9 +94,11 @@
 }
 .alert-box-rm {
   position: fixed;
-  height: 50px;
+  height: 40px;
   width: 25%;
-  background-color: red;
+  background-color: var(--background);
+  border: 1px solid red;
+  border-radius: 5px;
   top: 85%;
   left: 70%;
   display: flex;
@@ -91,7 +107,7 @@
   align-items: center;
 }
 .alert-message-rm {
-  color: white;
+  color: red;
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 1px;
