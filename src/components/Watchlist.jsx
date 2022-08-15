@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { MoviesContext } from "../modules/context";
-import { NavLink } from "react-router-dom";
+import { navigate, NavLink, useNavigate } from "react-router-dom";
 import { Home } from "../pages/index";
 import "./../styles/components/watchlist.css";
 const Watchlist = () => {
   const { watchlist, removeFromWatchlist, alertBox, message } =
     useContext(MoviesContext);
+
+  const navigate = useNavigate();
 
   if (watchlist.length === 0) {
     return (
@@ -33,7 +35,10 @@ const Watchlist = () => {
             return (
               <div className="single-wl-movie-container" key={id}>
                 <section className="info">
-                  <button className="wl-navigate">
+                  <button
+                    className="wl-navigate"
+                    onClick={() => navigate(`/movies/${id}`)}
+                  >
                     <h3 id="wl-movie-title"> {attributes.name}</h3>
                   </button>
                 </section>
