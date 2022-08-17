@@ -49,9 +49,10 @@
 .movie-img {
   height: 100%;
   width: 100%;
+  object-fit: contain;
 }
 .read-more-container {
-  width: 100%;
+  width: 85%;
   height: 10%;
   display: flex;
   flex-direction: row;

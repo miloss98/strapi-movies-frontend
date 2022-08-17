@@ -42,6 +42,6 @@
   grid-template-columns: auto auto auto auto;
   justify-content: center;
   align-content: center;
-  gap: 30px 40px;
+  gap: 20px 30px;
   border-radius: 3px;
 }
