@@ -61,20 +61,21 @@
 }
 .left-side-container {
   height: 100%;
-  width: 40%;
+  width: 30%;
 }
 .right-side-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 60%;
+  width: 70%;
   height: 100%;
   margin-left: 2rem;
 }
 .cover-image {
   height: 100%;
   width: 100%;
+  object-fit: contain;
 }
 .data {
   color: orangered;
