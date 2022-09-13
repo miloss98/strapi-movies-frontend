@@ -1,44 +1,11 @@
-import { useNavigate, Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { AuthContext } from "../modules/authcontext";
 import "./../styles/pages/login.css";
-//graphql
-import { useMutation } from "@apollo/client";
-import { LOGIN } from "../modules/mutations";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const [msg, setMsg] = useState("");
-  const { user, setUser, setIsLoggedIn } = useContext(AuthContext);
-
-  let navigate = useNavigate();
-
-  const [login] = useMutation(LOGIN);
-
-  const handleLogin = async () => {
-    try {
-      const data = await login({
-        variables: { identifier: username, password: password },
-      });
-      setUser({
-        name: data?.data?.login?.user?.username,
-        username: data?.data?.login?.user?.email,
-        jwt: data?.data?.login?.jwt,
-      });
-      console.log(user);
-      setIsLoggedIn(true);
-      navigate("/profile");
-    } catch (error) {
-      setMsg("Email / password is incorrect!");
-      setIsLoggedIn(false);
-      setTimeout(() => {
-        setMsg("");
-      }, "2000");
-    }
-  };
-
+  const { msg, setUsername, setPassword, handleLogin } =
+    useContext(AuthContext);
   return (
     <div className="login-wrapper">
       <section className="login-container">

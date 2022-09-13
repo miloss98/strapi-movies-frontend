@@ -1,46 +1,19 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./../styles/pages/register.css";
-//graphql
-import { useMutation } from "@apollo/client";
-import { REGISTER } from "../modules/mutations";
+import { AuthContext } from "../modules/authcontext";
+import { useContext } from "react";
 
 const Register = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const [msg, setMsg] = useState("");
-  const [register] = useMutation(REGISTER);
-
-  const resetFields = () => {
-    setUsername("");
-    setEmail("");
-    setPassword("");
-  };
-
-  const handleRegister = async () => {
-    try {
-      await register({
-        variables: {
-          username: username,
-          email: email,
-          password: password,
-        },
-      });
-      setMsg("Registration successful!");
-      setTimeout(() => {
-        setMsg("");
-      }, "2000");
-      resetFields();
-    } catch (error) {
-      setMsg("Registration failed, try again!");
-      setTimeout(() => {
-        setMsg("");
-      }, "2000");
-      resetFields();
-    }
-  };
+  const {
+    msg,
+    username,
+    setUsername,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleRegister,
+  } = useContext(AuthContext);
 
   return (
     <div className="register-wrapper">
@@ -80,8 +53,7 @@ const Register = () => {
         <p className="login-redirect">
           Already have an account?{" "}
           <Link className="link-to-login" to="/login">
-            {" "}
-            Login{" "}
+            Login
           </Link>
         </p>
       </section>

@@ -11,7 +11,6 @@ const Profile = () => {
       <div className="profile-container">
         <nav>
           <h2 className="greetings">
-            {" "}
             Hello, <span> {user.name} </span>
           </h2>
         </nav>
